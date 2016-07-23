@@ -8,19 +8,20 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 
 What is the 10 001st prime number?
 """
-# ToDo optimalization
-ret = []
-i = 1 
-while len( ret ) < 10001:
-    i += 1
-
-    for j in range ( 2, i + 1):
-        if i % j == 0 and i != j:
+# ToDo optimization
+ret = [2]
+a = 1
+b = False
+while len(ret) < 10001:
+    a += 1
+    for z in ret:
+        if a % z == 0:
+            b = False
             break
+        b = True
 
-        elif i % j == 0 and i == j:
-            ret.append( i )
-            i = ret[ len( ret ) - 1 ]
-            break
+    if b:
+        ret.append(a)
+        b = False
 
-print "{}".format( ret[ len( ret ) - 1 ] )
+print ret[len(ret) - 1]
