@@ -14,7 +14,7 @@ i = 1
 while to_resolve != 1:
     i += 1
     if to_resolve % i == 0:
-        to_resolve -= to_resolve / i
+        to_resolve /= i
         ret.add(i)
         i = 1
 print sorted(ret)[len(ret) - 1]

@@ -11,7 +11,7 @@ Find the sum of all the primes below two million.
 import time
 
 
-def compute(number):
+def is_prime(number):
     if number == 2:
         return True
 
@@ -28,6 +28,6 @@ def compute(number):
 if __name__ == '__main__':
     ret = []
     for number in range(1, 2000000):
-        if compute(number):
+        if is_prime(number):
             ret.append(number)
     print sum(ret)
