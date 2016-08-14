@@ -1,6 +1,14 @@
 #!/usr/bin/python
 # coding=utf-8
-from problem import Problem
+from Problem import Problem
+
+
+def run():
+    for a in range(1, 1000):
+        for b in range(1, 1000):
+            c = 1000 - a - b
+            if a ** 2 + b ** 2 == c ** 2:
+                return a * b * c
 
 
 class Problem9(Problem):
@@ -18,8 +26,4 @@ class Problem9(Problem):
     """
 
     def solve(self):
-        for a in range(1, 1000):
-            for b in range(1, 1000):
-                c = 1000 - a - b
-                if a ** 2 + b ** 2 == c ** 2:
-                    print a * b * c
+        print run()

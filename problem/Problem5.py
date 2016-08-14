@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from problem import Problem
+from Problem import Problem
 
 
 # ToDo implement
