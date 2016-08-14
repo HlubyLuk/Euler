@@ -7,6 +7,7 @@ from time import time
 
 from problem.Problem1 import Problem1
 from problem.Problem10 import Problem10
+from problem.Problem11 import Problem11
 from problem.Problem2 import Problem2
 from problem.Problem3 import Problem3
 from problem.Problem4 import Problem4
@@ -29,5 +30,6 @@ if __name__ == '__main__':
     Problem8().solve()
     Problem9().solve()
     Problem10().solve()
+    Problem11().solve()
 
     print "finis {}".format(time() - start)
