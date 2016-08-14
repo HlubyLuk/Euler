@@ -3,7 +3,6 @@
 """
 https://projecteuler.net/about
 """
-import math
 from abc import abstractmethod
 
 
@@ -19,7 +18,7 @@ class Problem(object):
         Implementation of solution of problem.
         print result.
         """
-        raise NotImplementedError('subclasses must override foo()!')
+        raise NotImplementedError('subclasses must override solve() method!')
 
     @staticmethod
     def is_prime(number):
@@ -30,14 +29,11 @@ class Problem(object):
         """
         if number == 2:
             return True
-
         if number % 2 == 0 or number < 2:
             return False
-
         for i in range(3, int(number ** .5) + 1, 2):
             if number % i == 0:
                 return False
-
         return True
 
     @staticmethod
@@ -58,9 +54,7 @@ class Problem(object):
         :return: count of dividers.
         """
         ret = 0
-
-        for i in range(1, int(math.sqrt(number))):
+        for i in range(1, int(number ** .5)):
             if number % i == 0:
                 ret += 1
-
         return ret * 2

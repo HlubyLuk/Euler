@@ -26,7 +26,6 @@ large_number_txt = """
 """
 
 
-# ToDo implement
 class Problem8(Problem):
     """
     Largest product in a series
@@ -62,14 +61,11 @@ class Problem8(Problem):
     def solve(self):
         parsed = large_number_txt.replace("\n", "")
         ret = int()
-
         for i in range(0, len(parsed) - 12):
             tmp = int(1)
             sub_parsed = parsed[i:i + 13:1]
             for j in range(0, len(sub_parsed)):
                 tmp *= int(sub_parsed[j])
-
             if ret < tmp:
                 ret = tmp
-
         print ret

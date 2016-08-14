@@ -22,5 +22,4 @@ class Problem6(Problem):
     """
 
     def solve(self):
-        ret = sum(range(1, 101)) ** 2 - sum(i ** 2 for i in range(1, 101))
-        print ret
+        print sum(range(1, 101)) ** 2 - sum(i ** 2 for i in range(1, 101))

@@ -12,10 +12,9 @@ class Problem10(Problem):
 
     Find the sum of all the primes below two million.
     """
-    # FixMe not correct
     def solve(self):
         ret = []
         for number in range(1, 2000000):
-            if Problem.is_prime(number):
+            if self.is_prime(number):
                 ret.append(number)
         print sum(ret)

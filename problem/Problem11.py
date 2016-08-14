@@ -15,13 +15,10 @@ class Coordinate(object):
     def __init__(self, x=-1, y=-1):
         if not isinstance(x, int):
             raise ArgumentError("Argument x in not int!!!", x)
-
         if not isinstance(y, int):
             raise ArgumentError("Argument y in not int, argument is instance of {}!!!", y)
-
         if x == -1 or y == -1:
             raise ValueError("Not correct construct!!!")
-
         self.x = x
         self.y = y
 
@@ -43,14 +40,12 @@ class SubMatrix(object):
         other_d = self.other_diagonal()
         in_rows = self.max_in_rows()
         in_columns = self.max_in_columns()
-
         return max(main_d, other_d, max(in_rows), max(in_columns))
 
     def main_diagonal(self):
         # type: () -> int
         c = self.coordinate
         m = self.matrix
-
         return m[c.x][c.y] * m[c.x + 1][c.y + 1] * m[c.x + 2][c.y + 2] * m[c.x + 3][c.y + 3]
 
     def other_diagonal(self):
@@ -61,7 +56,6 @@ class SubMatrix(object):
         """
         c = self.coordinate
         m = self.matrix
-
         return m[c.x][c.y + 3] * m[c.x + 1][c.y + 2] * m[c.x + 2][c.y + 1] * m[c.x + 3][c.y]
 
     def max_in_rows(self):
@@ -73,11 +67,9 @@ class SubMatrix(object):
         ret = []
         c = self.coordinate
         m = self.matrix
-
         for i in range(0, limit):
             row = m[c.x + i][c.y] * m[c.x + i][c.y + 1] * m[c.x + i][c.y + 2] * m[c.x + i][c.y + 3]
             ret.append(row)
-
         return ret
 
     def max_in_columns(self):
@@ -89,11 +81,9 @@ class SubMatrix(object):
         ret = []
         c = self.coordinate
         m = self.matrix
-
         for i in range(0, limit):
             cel = m[c.x][c.y + i] * m[c.x + 1][c.y + i] * m[c.x + 2][c.y + i] * m[c.x + 3][c.y + i]
             ret.append(cel)
-
         return ret
 
 
@@ -155,14 +145,12 @@ class Problem11(Problem):
     def solve(self):
         ret = list()
         matrix = self.parse_matrix(self.txt_matrix.replace("  ", ""))
-
         for x in range(0, len(matrix) - limit):
             row = matrix[x]
             for y in range(0, len(row) - limit):
                 coordinate = Coordinate(x, y)
                 sub_matrix = SubMatrix(coordinate, matrix)
                 ret.append(sub_matrix.get_maximum_product())
-
         print max(ret)
 
     def parse_matrix(self, matrix):
@@ -173,9 +161,7 @@ class Problem11(Problem):
         """
         ret = list()
         lines = matrix.splitlines()
-
         for i, val in enumerate(lines):
             int_arr = map(int, val.split(" "))
             ret.append(int_arr)
-
         return ret

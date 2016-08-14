@@ -34,4 +34,4 @@ if __name__ == '__main__':
     Problem11().solve()
     Problem12().solve()
 
-    print "finis {}".format(time() - start)
+    print "finish {}".format(time() - start)

@@ -3,14 +3,6 @@
 from Problem import Problem
 
 
-def run():
-    for a in range(1, 1000):
-        for b in range(1, 1000):
-            c = 1000 - a - b
-            if a ** 2 + b ** 2 == c ** 2:
-                return a * b * c
-
-
 class Problem9(Problem):
     """
     Special Pythagorean triplet
@@ -26,4 +18,11 @@ class Problem9(Problem):
     """
 
     def solve(self):
-        print run()
+        print self.run()
+
+    def run(self):
+        for a in range(1, 1000):
+            for b in range(1, 1000):
+                c = 1000 - a - b
+                if a ** 2 + b ** 2 == c ** 2:
+                    return a * b * c

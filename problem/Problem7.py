@@ -13,23 +13,11 @@ class Problem7(Problem):
     What is the 10 001st prime number?
     """
 
-    # ToDo optimization
     def solve(self):
-        ret = [2]
-        a = 1
-        b = False
+        ret = []
+        i = 1
         while len(ret) < 10001:
-            a += 1
-            for z in ret:
-                if a % z == 0:
-                    b = False
-                    break
-                b = True
-
-            if b:
-                ret.append(a)
-                b = False
-
-        print ret[len(ret) - 1]
-
-
+            if self.is_prime(i):
+                ret.append(i)
+            i += 1
+        print ret[10000]
