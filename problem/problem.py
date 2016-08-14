@@ -34,7 +34,7 @@ class Problem(object):
         if number % 2 == 0 or number < 2:
             return False
 
-        for i in range(3, int(number ** .5), 2):
+        for i in range(3, int(number ** .5) + 1, 2):
             if number % i == 0:
                 return False
 

@@ -17,54 +17,18 @@ from problem.problem8 import Problem8
 from problem.problem9 import Problem9
 
 if __name__ == '__main__':
-    i = 0
-
     start = time()
+
     Problem1().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem2().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem3().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem4().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem5().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem6().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem7().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem8().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem9().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
-
-    start = time()
     Problem10().solve()
-    i += 1
-    print "problem {} {}".format(i, time() - start)
+
+
+    print "finis {}".format(time() - start)
