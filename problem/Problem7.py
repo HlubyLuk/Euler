@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem7(Problem):
@@ -20,4 +20,4 @@ class Problem7(Problem):
             if self.is_prime(i):
                 ret.append(i)
             i += 1
-        print ret[10000]
+        return ret[10000]

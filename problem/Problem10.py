@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem10(Problem):
@@ -17,4 +17,4 @@ class Problem10(Problem):
         for number in range(1, 2000000):
             if self.is_prime(number):
                 ret.append(number)
-        print sum(ret)
+        return sum(ret)

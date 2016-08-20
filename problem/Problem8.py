@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 large_number_txt = """
 73167176531330624919225119674426574742355349194934
@@ -68,4 +68,4 @@ class Problem8(Problem):
                 tmp *= int(sub_parsed[j])
             if ret < tmp:
                 ret = tmp
-        print ret
+        return ret

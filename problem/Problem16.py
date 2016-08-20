@@ -16,8 +16,12 @@ class Problem16(Problem):
     """
 
     def solve(self):
-        tmp = str(long(math.pow(2, 1000)))
-        ret = 0
-        for i, val in enumerate(tmp):
-            ret += int(val)
-        return ret
+        # python2
+        # tmp = str(long(math.pow(2, 1000)))
+        # ret = int(0)
+        # for i, val in enumerate(tmp):
+        #     ret += int(val)
+        # return ret
+
+        # python3
+        return sum(list(map(int, list(str(int(math.pow(2, 1000)))))))

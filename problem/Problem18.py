@@ -72,5 +72,5 @@ class Problem18(Problem):
     def parse_triangle(self):
         ret = list()
         for i in TRIANGLE_TXT.splitlines():
-            ret.append(map(int, i.split(" ")))
+            ret.append(list(map(int, i.split(" "))))
         return ret

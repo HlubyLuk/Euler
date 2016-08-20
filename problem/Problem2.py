@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem2(Problem):
@@ -22,4 +22,4 @@ class Problem2(Problem):
 
             if b % 2 == 0:
                 ret += b
-        print ret
+        return ret

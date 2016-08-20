@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # coding=utf-8
 
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem1(Problem):
@@ -20,4 +20,4 @@ class Problem1(Problem):
         for i in range(1, 1000, 1):
             if i % 3 == 0 or i % 5 == 0:
                 ret += i
-        print ret
+        return ret

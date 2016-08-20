@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem6(Problem):
@@ -22,4 +22,4 @@ class Problem6(Problem):
     """
 
     def solve(self):
-        print sum(range(1, 101)) ** 2 - sum(i ** 2 for i in range(1, 101))
+        return sum(range(1, 101)) ** 2 - sum(i ** 2 for i in range(1, 101))

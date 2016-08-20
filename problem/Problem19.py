@@ -2,9 +2,8 @@
 # coding=utf-8
 from datetime import date
 
-from dateutil import relativedelta
-
 from problem.Problem import Problem
+from dateutils import relativedelta
 
 
 class Problem19(Problem):
@@ -31,5 +30,5 @@ class Problem19(Problem):
         while start < date(2001, 1, 1):
             if start.weekday() == 6:
                 ret += 1
-            start = start + relativedelta.relativedelta(months=1)
+            start = start + relativedelta(months=1)
         return ret

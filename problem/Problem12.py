@@ -33,4 +33,4 @@ class Problem12(Problem):
         i = 1
         while self.count_dividers(self.triangle_number(i)) < 500:
             i += 1
-        print self.triangle_number(i)
+        return self.triangle_number(i)

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 # ToDo implement
@@ -15,5 +15,4 @@ class Problem5(Problem):
     """
 
     def solve(self):
-        print "not implemented"
-        pass
+        return "not implemented"

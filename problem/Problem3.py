@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem3(Problem):
@@ -22,4 +22,4 @@ class Problem3(Problem):
                 tmp = i
                 i = 1
             i += 1
-        print tmp
+        return tmp

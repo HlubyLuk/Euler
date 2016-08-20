@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem9(Problem):
@@ -18,7 +18,7 @@ class Problem9(Problem):
     """
 
     def solve(self):
-        print self.run()
+        return self.run()
 
     def run(self):
         for a in range(1, 1000):

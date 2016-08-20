@@ -213,4 +213,4 @@ class Problem13(Problem):
 53503534226472524250874054075591789781264330331690"""
 
     def solve(self):
-        print str(sum(map(int, self.number.splitlines())))[0:10:1]
+        return str(sum(map(int, self.number.splitlines())))[0:10:1]

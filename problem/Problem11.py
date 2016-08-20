@@ -151,7 +151,7 @@ class Problem11(Problem):
                 coordinate = Coordinate(x, y)
                 sub_matrix = SubMatrix(coordinate, matrix)
                 ret.append(sub_matrix.get_maximum_product())
-        print max(ret)
+        return max(ret)
 
     def parse_matrix(self, matrix):
         """
@@ -162,6 +162,6 @@ class Problem11(Problem):
         ret = list()
         lines = matrix.splitlines()
         for i, val in enumerate(lines):
-            int_arr = map(int, val.split(" "))
+            int_arr = list(map(int, val.split(" ")))
             ret.append(int_arr)
         return ret

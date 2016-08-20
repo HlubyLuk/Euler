@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-from Problem import Problem
+from problem.Problem import Problem
 
 
 class Problem4(Problem):
@@ -21,4 +21,4 @@ class Problem4(Problem):
                 a = i * j
                 if str(a) == str(a)[::-1]:
                     ret.append(a)
-        print max(ret)
+        return max(ret)
