@@ -58,3 +58,13 @@ class Problem(object):
             if number % i == 0:
                 ret += 1
         return ret * 2
+
+    def binomical_coeficient(self, n, k):
+        return self.factorial(n) / (self.factorial(k) * self.factorial(n - k))
+
+    def factorial(self, n):
+        if n == 1:
+            ret = 1
+        else:
+            ret = n * self.factorial(n - 1)
+        return ret
