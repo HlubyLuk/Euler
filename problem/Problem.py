@@ -68,3 +68,14 @@ class Problem(object):
         else:
             ret = n * self.factorial(n - 1)
         return ret
+
+    def is_amicable(self, a):
+        b = self.sum_of_dividers(a)
+        return a == self.sum_of_dividers(b) and a != b
+
+    def sum_of_dividers(self, a):
+        dividers = 0
+        for i in range(1, a):
+            if a % i == 0:
+                dividers+=i
+        return dividers
