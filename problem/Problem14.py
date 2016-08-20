@@ -1,20 +1,10 @@
 #!/usr/bin/python
 # coding=utf-8
+from collections import defaultdict
+
 from problem.Problem import Problem
 
 STOP = 1000000
-
-
-class Holder:
-    count = None
-    i = None
-
-    def __init__(self, i, count):
-        self.i = i
-        self.count = count
-
-    def __str__(self):
-        return "i = {}, count {}".format(self.i, self.count)
 
 
 class Problem14(Problem):
@@ -39,23 +29,54 @@ class Problem14(Problem):
     """
 
     def solve(self):
-        tmp = set()
-        for i in range(1, STOP):
-            tmp.add(Holder(i, self.collatz(i)))
-        ret = Holder(0, 0)
-        for i in tmp:
-            if ret.count < i.count:
-                ret = i
-        print "fin {}".format(ret)
+        ret = defaultdict(int)
+        for i in range(2, STOP):
+            self.count(i, ret)
+        return sorted(ret.items(), key=lambda x: x[1]).pop()
 
-    def collatz(self, number):
-        if number == 1:
-            return 1
-        if number % 2 == 0:
-            var = int(number / 2)
-        else:
-            var = int(3 * number) + 1
-        if var < 1:
-            print var
-            raise ValueError("Negative output")
-        return 1 + self.collatz(var)
+    def count(self, number, ret):
+        tmp = number
+        count = 0
+        while number not in ret and number > 1:
+            if number % 2 == 0:
+                number /= 2
+            else:
+                number = 3 * number + 1
+            count += 1
+        rest = ret.get(number, 1)
+        ret.update({tmp: count + rest})
+        pass
+
+#         def solve(self):
+#             tmp = set()
+#             for i in range(1, STOP):
+#                 tmp.add(Holder(i, self.collatz(i)))
+#             ret = Holder(0, 0)
+#             for i in tmp:
+#                 if ret.count < i.count:
+#                     ret = i
+#             print "fin {}".format(ret)
+#
+#         def collatz(self, number):
+#             if number == 1:
+#                 return 1
+#             if number % 2 == 0:
+#                 var = int(number / 2)
+#             else:
+#                 var = int(3 * number) + 1
+#             if var < 1:
+#                 print var
+#                 raise ValueError("Negative output")
+#             return 1 + self.collatz(var)
+#
+#
+# class Holder:
+#     count = None
+#     i = None
+#
+#     def __init__(self, i, count):
+#         self.i = i
+#         self.count = count
+#
+#     def __str__(self):
+#         return "i = {}, count {}".format(self.i, self.count)
