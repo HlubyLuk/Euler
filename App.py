@@ -19,6 +19,8 @@ from problem.Problem2 import Problem2
 from problem.Problem20 import Problem20
 from problem.Problem21 import Problem21
 from problem.Problem22 import Problem22
+from problem.Problem23 import Problem23
+from problem.Problem24 import Problem24
 from problem.Problem3 import Problem3
 from problem.Problem4 import Problem4
 from problem.Problem5 import Problem5
@@ -51,5 +53,7 @@ if __name__ == '__main__':
     print(Problem20().solve())
     print(Problem21().solve())
     print(Problem22().solve())
+    print(Problem23().solve())
+    print(Problem24().solve())
 
     print("finish {}".format(time() - start))
