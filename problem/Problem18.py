@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding=utf-8
-
 from problem.Problem import Problem
 
 TRIANGLE_TXT = """75

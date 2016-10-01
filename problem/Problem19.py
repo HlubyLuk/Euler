@@ -1,7 +1,4 @@
-#!/usr/bin/ python
-# coding=utf-8
 from datetime import date
-
 from problem.Problem import Problem
 from dateutils import relativedelta
 

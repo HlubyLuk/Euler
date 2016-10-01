@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# coding=utf-8
 from problem.Problem import Problem
 
 
@@ -15,4 +13,4 @@ class Problem5(Problem):
     """
 
     def solve(self):
-        return "not implemented"
+        return self.NOT_IMPLEMENTED

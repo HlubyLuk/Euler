@@ -1,7 +1,5 @@
-#!/usr/bin/python
-# coding=utf-8
+#coding=utf-8
 from argparse import ArgumentError
-
 from problem.Problem import Problem
 
 limit = 4

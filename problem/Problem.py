@@ -12,6 +12,8 @@ class Problem(object):
     Must implement method solve
     """
 
+    NOT_IMPLEMENTED = "Not implemented!!!"
+
     @abstractmethod
     def solve(self):
         """
@@ -60,9 +62,20 @@ class Problem(object):
         return ret * 2
 
     def binomical_coeficient(self, n, k):
+        """
+        Compute combination number. k is lower or equal n. https://en.wikipedia.org/wiki/Combination
+        :param n: count of set.
+        :param k: count of sub-set.
+        :return: count of combinations.
+        """
         return self.factorial(n) / (self.factorial(k) * self.factorial(n - k))
 
     def factorial(self, n):
+        """
+        Factorial of number.
+        :param n: number.
+        :return: multiplication of all number from n to 1.
+        """
         if n == 1:
             ret = 1
         else:
@@ -70,12 +83,47 @@ class Problem(object):
         return ret
 
     def is_amicable(self, a):
+        """
+        Check sum of dividers number is same like sum of dividers
+        of his sum of dividers.
+        :param a: number
+        :return: True if is amicable, otherwise False.
+        """
         b = self.sum_of_dividers(a)
         return a == self.sum_of_dividers(b) and a != b
 
     def sum_of_dividers(self, a):
-        dividers = 0
-        for i in range(1, a):
-            if a % i == 0:
-                dividers+=i
-        return dividers
+        """
+
+        :param a:
+        :return:
+        """
+        return sum([i for i in range(1, int((a / 2) + 1)) if a % i == 0])
+
+    def is_perfect_number(self, i):
+        return self.sum_of_dividers(i) == i
+
+    def is_abundant_number(self, i):
+        return self.sum_of_dividers(i) > i
+
+    def nextLexicographicPermutations(self, sequence):
+        i, j = len(sequence) - 2, len(sequence) - 1
+
+        while i > 0 and sequence[i] >= sequence[i + 1]:
+            i -= 1
+
+        while j > 0 and sequence[j] <= sequence[i]:
+            j -= 1
+
+        tmp = sequence[i]
+        sequence[i] = sequence[j]
+        sequence[j] = tmp
+
+        x, y = i + 1, len(sequence) - 1
+        clone = list(sequence)
+        while x < y:
+            sequence[x] = clone[y]
+            sequence[y] = clone[x]
+
+            x += 1
+            y -= 1

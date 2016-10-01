@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# coding=utf-8
+#coding=utf-8
 from problem.Problem import Problem
 
 large_number_txt = """

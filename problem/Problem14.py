@@ -1,7 +1,5 @@
-#!/usr/bin/python
-# coding=utf-8
+#coding=utf-8
 from collections import defaultdict
-
 from problem.Problem import Problem
 
 STOP = 1000000
@@ -32,7 +30,7 @@ class Problem14(Problem):
         ret = defaultdict(int)
         for i in range(2, STOP):
             self.count(i, ret)
-        return sorted(ret.items(), key=lambda x: x[1]).pop()
+        return sorted(ret.items(), key=lambda x: x[1]).pop()[0]
 
     def count(self, number, ret):
         tmp = number
