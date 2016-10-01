@@ -20,6 +20,7 @@ from problem.Problem13 import Problem13
 from problem.Problem14 import Problem14
 from problem.Problem15 import Problem15
 from problem.Problem16 import Problem16
+from problem.Problem17 import Problem17
 from problem.Problem18 import Problem18
 from problem.Problem19 import Problem19
 from problem.Problem20 import Problem20
@@ -54,6 +55,7 @@ if __name__ == '__main__':
     print(Problem14().solve())
     print(Problem15().solve())
     print(Problem16().solve())
+    print(Problem17().solve())
     print(Problem18().solve())
     print(Problem19().solve())
     print(Problem20().solve())
