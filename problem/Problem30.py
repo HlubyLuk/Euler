@@ -28,12 +28,4 @@ class Problem30(Problem):
         return number == sum([pow(int(val), POW_INDEX) for i, val in enumerate(str(number))])
 
     def solve(self):
-        pmt = 0
-        for i in range(START, STOP, STEP):
-            tmp = 0
-            for j, val in enumerate(str(i)):
-                tmp += pow(int(val), POW_INDEX)
-            if i == tmp:
-                pmt += i
-        #return sum([i for i in range(START, STOP, STEP) if self.decomposition(i)])
-        #return sum([i for i in range(START, STOP, STEP) if sum([pow(int(val), POW_INDEX) for j, val in enumerate(str(i))])== i])
+        return sum(i for i in range(START, STOP, STEP) if self.decomposition(i))

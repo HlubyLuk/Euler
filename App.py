@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 https://projecteuler.net/about
 """
@@ -35,6 +35,7 @@ from problem.Problem28 import Problem28
 from problem.Problem29 import Problem29
 from problem.Problem30 import Problem30
 from problem.Problem31 import Problem31
+from problem.Problem32 import Problem32
 
 if __name__ == '__main__':
     start = time()
@@ -70,5 +71,6 @@ if __name__ == '__main__':
     print(Problem29().solve())
     print(Problem30().solve())
     print(Problem31().solve())
+    print(Problem32().solve())
 
     print("finish {}".format(time() - start))
