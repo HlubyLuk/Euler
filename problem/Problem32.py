@@ -1,3 +1,4 @@
+#coding=utf-8
 from problem.Problem import Problem
 
 ALL_DIGITS = "123456789"

@@ -1,7 +1,5 @@
 from problem.Problem import Problem
 
-
-# ToDo implement
 class Problem5(Problem):
     """
     Smallest multiple
@@ -13,4 +11,15 @@ class Problem5(Problem):
     """
 
     def solve(self):
-        return self.NOT_IMPLEMENTED
+        arr = range(1, 21)
+        tmp = 1
+        while True:
+            check = True
+            for j in arr:
+                check = tmp % j == 0
+                if not check:
+                    break
+            if check:
+                break
+            tmp += 1
+        return tmp
