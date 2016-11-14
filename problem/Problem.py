@@ -98,6 +98,20 @@ class Problem(object):
         """
         return sum([i for i in range(1, int((a / 2) + 1)) if a % i == 0])
 
+    def prime_dividers(self, a):
+        i, j, tmp = a, 2, []
+        if self.is_prime(a):
+            tmp.append(a)
+        else:
+            while i > 0 and i >= j:
+                if i % j == 0:
+                    tmp.append(j)
+                    i /= j
+                else:
+                    j += 1
+        return list(tmp)
+
+
     def is_perfect_number(self, i):
         return self.sum_of_dividers(i) == i
 
