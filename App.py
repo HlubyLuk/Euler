@@ -73,4 +73,5 @@ if __name__ == '__main__':
     print(Problem31().solve())
     print(Problem32().solve())
 
-    print("finish {}".format(time() - start))
+    time_diff = time() - start
+    print("finish {}:{} orig ({})".format(int(time_diff // 60), int(time_diff % 60), time_diff))
