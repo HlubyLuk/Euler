@@ -37,6 +37,7 @@ from problem.Problem30 import Problem30
 from problem.Problem31 import Problem31
 from problem.Problem32 import Problem32
 from problem.Problem33 import Problem33
+from problem.Problem34 import Problem34
 
 if __name__ == '__main__':
     start = time()
@@ -73,5 +74,6 @@ if __name__ == '__main__':
     print(Problem31().solve())
     print(Problem32().solve())
     print(Problem33().solve())
+    print(Problem34().solve())
     time_diff = time() - start
     print("finish {}:{} orig ({})".format(int(time_diff // 60), int(time_diff % 60), time_diff))
