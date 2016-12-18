@@ -16,4 +16,11 @@ class Problem33(Problem):
     """
 
     def solve(self):
-        return self.NOT_IMPLEMENTED
+        den_product, nom_product = 1, 1
+        for i in range(1, 11, 1):
+            for den in range(1, i, 1):
+                for nom in range(1, den, 1):
+                    if ((nom * 10 + i) * den == nom * (i * 10 + den)):
+                        den_product *= den
+                        nom_product *= nom
+        return den_product / self.gcd(nom_product, den_product)
