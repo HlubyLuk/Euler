@@ -1,6 +1,3 @@
-"""
-https://projecteuler.net/about
-"""
 from abc import abstractmethod
 
 
@@ -139,3 +136,20 @@ class Problem(object):
 
             x += 1
             y -= 1
+
+    def gcd(self, a, b):
+        """
+        Great common divider.
+        """
+        x, y = 0, 0
+        if a > b:
+            x = a
+            y = b
+        else:
+            x = b
+            y = a
+        while x % y != 0:
+            tmp = x
+            x = y
+            y = tmp % x
+        return y
