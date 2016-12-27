@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 from problem.Problem import Problem
 
 # STOP = 3
@@ -31,7 +31,8 @@ class Problem25(Problem):
 
     The 12th term, F12, is the first term to contain three digits.
 
-    What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+    What is the index of the first term in the Fibonacci sequence to contain
+    1000 digits?
     """
 
     def solve(self):

@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 import os
 import posixpath
 from problem.Problem import Problem
@@ -9,10 +9,10 @@ class Problem22(Problem):
     Names scores
     Problem 22
 
-    Using names.txt (in asset directory), a 46K text file containing over five-thousand first names,
-    begin by sorting it into alphabetical order.
-    Then working out the alphabetical value for each name,
-    multiply this value by its alphabetical position in the list to obtain a name score.
+    Using names.txt (in asset directory), a 46K text file containing over
+    five-thousand first names, begin by sorting it into alphabetical order.
+    Then working out the alphabetical value for each name, multiply this value
+    by its alphabetical position in the list to obtain a name score.
 
     For example, when the list is sorted into alphabetical order, COLIN,
     which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list.
@@ -22,7 +22,8 @@ class Problem22(Problem):
     """
 
     def solve(self):
-        a = open(os.getcwd() + posixpath.sep + "asset" + posixpath.sep + "names.txt")
+        a = open(
+            os.getcwd() + posixpath.sep + "asset" + posixpath.sep + "names.txt")
         str_from_file = str()
         for line in a.readlines():
             str_from_file = str_from_file.join(line)

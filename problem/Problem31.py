@@ -1,5 +1,6 @@
-#coding=utf-8
+# coding=utf-8
 from problem.Problem import Problem
+
 
 class KnapsackSolver():
     """

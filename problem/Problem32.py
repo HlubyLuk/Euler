@@ -1,10 +1,11 @@
-#coding=utf-8
+# coding=utf-8
 from problem.Problem import Problem
 
 ALL_DIGITS = "123456789"
 
+
 class Problem32(Problem):
-    """ 
+    """
     Pandigital products
     Problem 32
 
@@ -22,7 +23,11 @@ class Problem32(Problem):
     """
 
     def solve(self):
-        return sum(set([i * j for i in range(1, 10001) for j in range(1, 1001) if self.pandigital_check(i, j)]))
+        return sum(
+            set(
+                [i * j for i in range(
+                    1, 10001) for j in range(
+                        1, 1001) if self.pandigital_check(i, j)]))
 
     def pandigital_check(self, i, j):
         tmp = ''.join(sorted('{}{}{}'.format(i, j, i * j)))

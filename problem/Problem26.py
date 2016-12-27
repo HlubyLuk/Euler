@@ -8,10 +8,9 @@ STEP = 1
 class ReciprocalSolver():
     """
     """
-    
     precision = 1000
 
-    def __init__(self, numerator = 1, denominator = 1):
+    def __init__(self, numerator=1, denominator=1):
         self.numerator = numerator
         self.denominator = denominator
         self.rests = set()
@@ -20,7 +19,7 @@ class ReciprocalSolver():
 
     def solve(self):
         count = 0
-        self.x = self.numerator / self.denominator 
+        self.x = self.numerator / self.denominator
         rest = self.numerator % self.denominator
         while count < self.precision and rest > 0 and rest not in self.rests:
             self.rests.add(rest)
@@ -37,7 +36,8 @@ class Problem26(Problem):
     Problem 26
 
     A unit fraction contains 1 in the numerator.
-    The decimal representation of the unit fractions with denominators 2 to 10 are given:
+    The decimal representation of the unit fractions with denominators 2 to 10
+    are given:
 
         1/2	= 	0.5
         1/3	= 	0.(3)
@@ -47,14 +47,14 @@ class Problem26(Problem):
         1/7	= 	0.(142857)
         1/8	= 	0.125
         1/9	= 	0.(1)
-        1/10	= 	0.1 
+        1/10	= 	0.1
 
     Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle.
     It can be seen that 1/7 has a 6-digit recurring cycle.
 
     Find the value of d < 1000 for which 1/d contains
     the longest recurring cycle in its decimal fraction part.
-    """    
+    """
 
     def solve(self):
         biggest = ReciprocalSolver()

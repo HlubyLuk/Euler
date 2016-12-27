@@ -1,5 +1,5 @@
 from problem.Problem import Problem
-from functools import reduce
+
 
 class Problem35(Problem):
     """
@@ -15,5 +15,8 @@ class Problem35(Problem):
     How many circular primes are there below one million?
     """
 
-    def solve( self ):
-        return len([x for x in range(1000000) if all(self.is_prime(int(str(x)[y:] + str(x)[:y])) for y in range(len(str(x))))])
+    def solve(self):
+        return len(
+            [x for x in range(1000000) if all(
+                self.is_prime(int(str(x)[y:] + str(x)[:y])) for y in range(
+                    len(str(x))))])

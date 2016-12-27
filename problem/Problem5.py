@@ -1,6 +1,7 @@
 from problem.Problem import Problem
 from collections import Counter
 
+
 class Problem5(Problem):
     """
     Smallest multiple
@@ -17,11 +18,10 @@ class Problem5(Problem):
         prime_dividers = [self.prime_dividers(i) for i in range(1, 21)]
         tmp = list([0] * 21)
         for i in prime_dividers:
-            arr = list([0] * 21)
             d = Counter(i).items()
             for i, val in enumerate(d):
                 index = val[0]
-                y = index ** val[1] 
+                y = index ** val[1]
                 if tmp[index] < y:
                     tmp[index] = y
         x = 1

@@ -4,6 +4,7 @@ from math import pow
 START, STOP, STEP = 2, 1000000, 1
 POW_INDEX = 5
 
+
 class Problem30(Problem):
     """
     Digit fifth powers
@@ -25,7 +26,8 @@ class Problem30(Problem):
     """
 
     def decomposition(self, number):
-        return number == sum([pow(int(val), POW_INDEX) for i, val in enumerate(str(number))])
+        return number == sum([pow(int(val), POW_INDEX) for i, val in enumerate(
+            str(number))])
 
     def solve(self):
         return sum(i for i in range(START, STOP, STEP) if self.decomposition(i))

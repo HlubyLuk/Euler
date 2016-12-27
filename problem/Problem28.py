@@ -1,7 +1,7 @@
 from problem.Problem import Problem
 
-
 EDGE = 1001
+
 
 class Problem28(Problem):
     """
@@ -21,7 +21,7 @@ class Problem28(Problem):
 
     What is the sum of the numbers on the diagonals in a 1001 by 1001
     spiral formed in the same way?
-    """    
+    """
 
     def solve(self):
         edges = EDGE * EDGE

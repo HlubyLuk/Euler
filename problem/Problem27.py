@@ -1,8 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 from problem.Problem import Problem
 
 STOP = 1000
 START = -STOP
+
 
 class Problem27(Problem):
     """
@@ -44,7 +45,6 @@ class Problem27(Problem):
                     a = i
                     b = j
         return a * b
-
 
     def formula(self, a, b):
         n = 0
