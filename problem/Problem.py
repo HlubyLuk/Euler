@@ -153,3 +153,28 @@ class Problem(object):
             x = y
             y = tmp % x
         return y
+
+    def fib(self, x):
+        """
+        X number in fibonacci sequence.
+        """
+        counter, a, b = 0, 0, 1
+        while counter < x:
+            a, b = b, a + b
+            counter += 1
+        return b
+
+
+    def is_palindrome_10(self, a):
+        x = str(a)
+        return x[::1] == x[::-1]
+
+
+    def is_palindrome_2(self, a):
+        x = bin(a)[2::]
+        return x[::1] == x[::-1]
+
+
+    def pandigital_number(self, a):
+        return cmp(list("123456789"), sorted(list(a))) == 0
+        pass
