@@ -4,7 +4,8 @@ Created on Nov 3, 2018
 @author: HlubyLuk
 '''
 import unittest
-from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5
+from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5,\
+    Problem6
 
 
 class Test(unittest.TestCase):
@@ -29,6 +30,9 @@ class Test(unittest.TestCase):
 
     def testProblem5(self):
         self.assertEqual(232792560, Problem5().solve())
+
+    def testProblem6(self):
+        self.assertEqual(25164150, Problem6().solve())
 
 
 if __name__ == "__main__":

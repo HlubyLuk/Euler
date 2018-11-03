@@ -143,5 +143,28 @@ class Problem5(Problem):
         return self.lcm([x for x in range(1, 21, 1)])
 
 
+class Problem6(Problem):
+    '''
+    Sum square difference
+    Problem 6
+    The sum of the squares of the first ten natural numbers is,
+
+    1^2 + 2^2 + ... + 10^2 = 385
+    The square of the sum of the first ten natural numbers is,
+
+    (1 + 2 + ... + 10)^2 = 552 = 3025
+    Hence the difference between the sum of the squares of the first ten
+    natural numbers and the square of the sum is 3025 − 385 = 2640.
+
+    Find the difference between the sum of the squares of the first one hundred
+    natural numbers and the square of the sum.
+    '''
+
+    def solve(self):
+        seq = [x for x in range(1, 101, 1)]
+
+        return math.pow(sum(seq), 2) - sum(map(lambda x: math.pow(x, 2), seq))
+
+
 if __name__ == '__main__':
     pass
