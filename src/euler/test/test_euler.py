@@ -5,7 +5,7 @@ Created on Nov 3, 2018
 '''
 import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5,\
-    Problem6, Problem7
+    Problem6, Problem7, Problem8
 
 
 class Test(unittest.TestCase):
@@ -36,6 +36,9 @@ class Test(unittest.TestCase):
 
     def testProblem7(self):
         self.assertEqual(104743, Problem7().solve())
+
+    def testProblem8(self):
+        self.assertEqual(23514624000, Problem8().solve())
 
 
 if __name__ == "__main__":
