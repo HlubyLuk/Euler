@@ -53,6 +53,13 @@ class Problem(ABC):
 
         return cache
 
+    def is_palindromic(self, number):
+        '''
+        Is number same from start to end and end to start.
+        :return `True` is same, otherwise `False`
+        '''
+        return str(number) == str(number)[::-1]
+
 
 class Problem1(Problem):
     '''
@@ -105,8 +112,7 @@ class Problem3(Problem):
     '''
 
     def solve(self):
-        return sorted(
-            self.prime_factors(600851475143).items(), key=lambda x: x[0])[-1][0]
+        return sorted(self.prime_factors(600851475143).keys())[-1]
 
 
 class Problem4(Problem):
@@ -120,12 +126,10 @@ class Problem4(Problem):
     '''
 
     def solve(self):
-        return sorted(
-            [x * y for x in range(999, 99, -1) for y in range(999, 99, -1)
-             if self.is_palindromic(x * y)])[-1]
+        r = range(999, 99, -1)
 
-    def is_palindromic(self, number):
-        return str(number) == str(number)[::-1]
+        return sorted([x * y for x in r for y in r
+                       if self.is_palindromic(x * y)])[-1]
 
 
 class Problem5(Problem):
