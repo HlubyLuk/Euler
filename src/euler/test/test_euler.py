@@ -5,7 +5,7 @@ Created on Nov 3, 2018
 '''
 import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5,\
-    Problem6, Problem7, Problem8
+    Problem6, Problem7, Problem8, Problem
 
 
 class Test(unittest.TestCase):
@@ -39,6 +39,33 @@ class Test(unittest.TestCase):
 
     def testProblem8(self):
         self.assertEqual(23514624000, Problem8().solve())
+
+    def testLcm(self):
+        self.assertEqual(42, MockProblem().lcm([6, 21]))
+
+    def testPrimeFactors(self):
+        self.assertEqual({2: 2, 3: 1, 5: 1}, MockProblem().prime_factors(60))
+
+    def testIsPalindromic(self):
+        self.assertTrue(MockProblem().is_palindromic(990099))
+
+    def testIsNotPalidromic(self):
+        self.assertFalse(MockProblem().is_palindromic(123456))
+
+    def testIsPrime2(self):
+        self.assertTrue(MockProblem().is_prime(2))
+
+    def testIsPrime29(self):
+        self.assertTrue(MockProblem().is_prime(29))
+
+    def testIsNotPrime(self):
+        self.assertFalse(MockProblem().is_prime(100))
+
+
+class MockProblem(Problem):
+
+    def solve(self):
+        return Problem.solve(self)
 
 
 if __name__ == "__main__":
