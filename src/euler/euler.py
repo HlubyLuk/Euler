@@ -60,6 +60,25 @@ class Problem(ABC):
         '''
         return str(number) == str(number)[::-1]
 
+    def is_prime(self, i=1):
+        '''
+        Analyze is number prime.
+        :i `int` to analyze.
+        :return `True` is prime, otherwise `False`.
+        '''
+        # return len([x for x in range(2, int(math.sqrt(i) + 1)) if i % x ==
+        # 0]) == 0
+
+        x = 2
+
+        while x * x <= i:
+            if (i % x == 0):
+                return False
+
+            x += 1
+
+        return True
+
 
 class Problem1(Problem):
     '''
@@ -168,6 +187,32 @@ class Problem6(Problem):
         seq = [x for x in range(1, 101, 1)]
 
         return math.pow(sum(seq), 2) - sum(map(lambda x: math.pow(x, 2), seq))
+
+
+class Problem7(Problem):
+    '''
+    10001st prime
+    Problem 7
+    By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+    that the 6th prime is 13.
+
+    What is the 10 001st prime number?
+    '''
+
+    def solve(self):
+        counter = 0
+        number = 2
+
+        while True:
+            if self.is_prime(number):
+                counter += 1
+
+            if counter == 10001:
+                break
+
+            number += 1
+
+        return number
 
 
 if __name__ == '__main__':
