@@ -79,6 +79,30 @@ class Problem(ABC):
 
         return True
 
+    def eratosthenes_sief(self, number):
+        '''
+        In mathematics, the sieve of Eratosthenes is a simple, ancient
+        algorithm for finding all prime numbers up to any given limit.
+        It does so by iteratively marking as composite the multiples of
+        each prime.
+        :number top limit
+        :return `dict` of booleans, where `True` is not prime, `False` is
+        prime.
+        '''
+        sieve = [False] * (number + 1)
+        sieve[0], sieve[1] = True, True
+
+        for item in range(2, int(math.sqrt(number)) + 1):
+            if sieve[item]:
+                continue
+
+            step = item * 2
+            while step <= number:
+                sieve[step] = True
+                step += item
+
+        return sieve
+
 
 class Problem1(Problem):
     '''
@@ -303,6 +327,28 @@ class Problem9(Problem):
                   if a**2 + b**2 == (c(a, b))**2]
 
         return list(map(lambda x: reduce(lambda y, z: y * z, x), resuts))[0]
+
+
+class Problem10(Problem):
+    '''
+    Summation of primes
+    Problem 10
+    The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+    Find the sum of all the primes below two million.
+    '''
+
+    def solve(self):
+        # return sum([x for x in range(2, 2000000) if self.is_prime(x)])
+
+        limit = 2000000
+        f = (lambda x: x[1] is False)
+        m = (lambda x: x[0])
+
+        sieve = self.eratosthenes_sief(limit)
+        indexs = [x for x in range(0, limit + 1)]
+
+        return sum(map(m, filter(f, zip(indexs, sieve))))
 
 
 if __name__ == '__main__':
