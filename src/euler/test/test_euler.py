@@ -5,7 +5,7 @@ Created on Nov 3, 2018
 '''
 import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5,\
-    Problem6, Problem7, Problem8, Problem
+    Problem6, Problem7, Problem8, Problem, Problem9
 
 
 class Test(unittest.TestCase):
@@ -54,6 +54,9 @@ class Test(unittest.TestCase):
 
     def test_is_not_prime(self):
         self.assertFalse(MockProblem().is_prime(100))
+
+    def test_problem9(self):
+        self.assertEqual(31875000, Problem9().solve())
 
 
 class MockProblem(Problem):

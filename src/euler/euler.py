@@ -277,5 +277,33 @@ class Problem8(Problem):
                     for x in range(0, len(self.number_txt) - 13 + 1, 1)])
 
 
+class Problem9(Problem):
+    '''
+    Special Pythagorean triplet
+    Problem 9
+    A Pythagorean triplet is a set of three natural numbers, a < b < c, for
+    which,
+
+    a^2 + b^2 = c^2
+    For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
+
+    There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+    Find the product abc.
+    '''
+
+    def __init__(self):
+        self.x = 1000
+
+    def solve(self):
+        c = (lambda a, b: self.x - a - b)
+
+        resuts = [{a, b, c(a, b)}
+                  for a in range(1, int(self.x / 2))
+                  for b in range(1, int(self.x / 3))
+                  if a**2 + b**2 == (c(a, b))**2]
+
+        return list(map(lambda x: reduce(lambda y, z: y * z, x), resuts))[0]
+
+
 if __name__ == '__main__':
     pass
