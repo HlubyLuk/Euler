@@ -5,7 +5,7 @@ Created on Nov 3, 2018
 '''
 import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5,\
-    Problem6, Problem7, Problem8, Problem, Problem9, Problem10
+    Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11
 
 
 class Test(unittest.TestCase):
@@ -64,6 +64,9 @@ class Test(unittest.TestCase):
     def test_eratosthenes_sief(self):
         self.assertEqual([True, True, False, False, True, False, True, False],
                          MockProblem().eratosthenes_sief(7))
+
+    def test_problem11(self):
+        self.assertEqual(70600674, Problem11().solve())
 
 
 class MockProblem(Problem):
