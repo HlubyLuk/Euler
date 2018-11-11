@@ -4,9 +4,9 @@ Created on Nov 3, 2018
 @author: HlubyLuk
 '''
 import unittest
-from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5,\
-    Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11,\
-    Problem12, Problem13, Problem14
+from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
+    Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
+    Problem12, Problem13, Problem14, Problem15
 
 
 class Test(unittest.TestCase):
@@ -77,6 +77,15 @@ class Test(unittest.TestCase):
 
     def test_problem14(self):
         self.assertEqual(837799, Problem14().solve())
+
+    def test_problem15(self):
+        self.assertEqual(137846528820, Problem15().solve())
+
+    def test_factorial_recursive(self):
+        self.assertEqual(24, MockProblem().factorial(4))
+
+    def test_combination_number(self):
+        self.assertEqual(6, MockProblem().combination_number(2 + 2, 2))
 
 
 class MockProblem(Problem):

@@ -103,6 +103,26 @@ class Problem(ABC):
 
         return sieve
 
+    def factorial(self, number=1):
+        """
+        Return factorial value.
+        :number input value.
+        :return factorial value of input.
+        """
+        return 1 if number == 1 else number * self.factorial(number - 1)
+
+    def combination_number(self, n, k):
+        '''
+        Selection of items from a collection, such that (unlike permutations)
+        the order of selection does not matter.
+        :see https://en.wikipedia.org/wiki/Combination
+        :n things.
+        :k at a time without repetition.
+        :return count of combinations.
+        '''
+        return int(
+            self.factorial(n) / (self.factorial(k) * self.factorial(n - k)))
+
 
 class Problem1(Problem):
     '''
@@ -324,7 +344,7 @@ class Problem9(Problem):
         resuts = [{a, b, c(a, b)}
                   for a in range(1, int(self.x / 2))
                   for b in range(1, int(self.x / 3))
-                  if a**2 + b**2 == (c(a, b))**2]
+                  if a ** 2 + b ** 2 == (c(a, b)) ** 2]
 
         return list(map(lambda x: reduce(lambda y, z: y * z, x), resuts))[0]
 
@@ -428,8 +448,8 @@ class Problem11(Problem):
         product = (lambda a, b: a * b)
         mapper = (lambda x: reduce(product, x))
 
-        return max(map(mapper, rows + columns +
-                       main_diagonal + other_diagonal))
+        return max(
+            map(mapper, rows + columns + main_diagonal + other_diagonal))
 
 
 class Problem12(Problem):
@@ -748,6 +768,24 @@ class Problem14(Problem):
                     break
 
         return sorted(cache.items(), key=lambda x: x[1], reverse=True)[0][0]
+
+
+class Problem15(Problem):
+    '''
+    Lattice paths
+    Problem 15
+    Starting in the top left corner of a 2×2 grid, and only being able to
+    move to the right and down, there are exactly 6 routes to the bottom
+    right corner.
+
+    How many such routes are there through a 20×20 grid?
+    '''
+
+    def __init__(self):
+        self.edge = 20
+
+    def solve(self):
+        return self.combination_number(self.edge + self.edge, self.edge)
 
 
 if __name__ == '__main__':
