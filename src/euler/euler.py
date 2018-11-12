@@ -4,8 +4,8 @@ Created on Nov 3, 2018
 @author: HlubyLuk
 '''
 from abc import ABC, abstractmethod
-import math
 from functools import reduce
+import math
 
 
 class Problem(ABC):
@@ -786,6 +786,26 @@ class Problem15(Problem):
 
     def solve(self):
         return self.combination_number(self.edge + self.edge, self.edge)
+
+
+class Problem16(Problem):
+    '''
+    Power digit sum
+    Problem 16
+    2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+
+    What is the sum of the digits of the number 2^1000?
+    '''
+
+    def solve(self):
+        powerd = int(math.pow(2, 1000))
+
+        cache = []
+        while powerd != 0:
+            cache.append(powerd % 10)
+            powerd //= 10
+
+        return sum(cache)
 
 
 if __name__ == '__main__':
