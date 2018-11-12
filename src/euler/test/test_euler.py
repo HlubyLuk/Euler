@@ -6,7 +6,7 @@ Created on Nov 3, 2018
 import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
-    Problem12, Problem13, Problem14, Problem15, Problem16
+    Problem12, Problem13, Problem14, Problem15, Problem16, Problem18
 
 
 class Test(unittest.TestCase):
@@ -89,6 +89,9 @@ class Test(unittest.TestCase):
 
     def test_problem16(self):
         self.assertEqual(1366, Problem16().solve())
+
+    def test_problem18(self):
+        self.assertEqual(1074, Problem18().solve())
 
 
 class MockProblem(Problem):
