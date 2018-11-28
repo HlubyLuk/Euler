@@ -123,6 +123,25 @@ class Problem(ABC):
         return int(
             self.factorial(n) / (self.factorial(k) * self.factorial(n - k)))
 
+    def divisors(self, x):
+        '''
+        Create collection of divisors.
+        :x number which divisors you want known.
+        :return collection of divisors.
+        '''
+        return [y for y in range(1, int(x / 2) + 1) if x % y == 0]
+
+    def is_amicable_number(self, x):
+        '''
+        Amicable numbers are two different numbers so related that the
+        sum of the proper divisors of each is equal to the other number
+        :x
+        :return `True` is amicable, otherwise `False`
+        '''
+        a = sum(self.divisors(x))
+        b = sum(self.divisors(a))
+        return x == b and a != b
+
 
 class Problem1(Problem):
     '''
@@ -936,6 +955,26 @@ class Problem20(Problem):
         return sum(map(lambda x: int(x), repr(self.factorial(100))))
 
 
+class Problem21(Problem):
+    '''
+    Amicable numbers
+    Problem 21
+    Let d(n) be defined as the sum of proper divisors of n
+    (numbers less than n which divide evenly into n).
+    If d(a) = b and d(b) = a, where a ≠ b, then a and b are
+    an amicable pair and each of a and b are called amicable numbers.
+
+    For example, the proper divisors of 220 are
+    1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110;
+    therefore d(220) = 284. The proper divisors of 284 are
+    1, 2, 4, 71 and 142; so d(284) = 220.
+
+    Evaluate the sum of all the amicable numbers under 10000.
+    '''
+
+    def solve(self):
+        return sum([x for x in range(1, 10000) if self.is_amicable_number(x)])
+
+
 if __name__ == '__main__':
-    print(Problem20().solve())
     pass

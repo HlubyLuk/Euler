@@ -7,7 +7,7 @@ import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
-    Problem19, Problem20
+    Problem19, Problem20, Problem21
 
 
 class Test(unittest.TestCase):
@@ -99,6 +99,18 @@ class Test(unittest.TestCase):
 
     def test_problem20(self):
         self.assertEqual(648, Problem20().solve())
+
+    def test_problem21(self):
+        self.assertEqual(31626, Problem21().solve())
+
+    def test_divisors(self):
+        self.assertListEqual([1, 2, 5], MockProblem().divisors(10))
+
+    def test_amicable_number_ok(self):
+        self.assertTrue(MockProblem().is_amicable_number(220))
+
+    def test_amicable_number_ko(self):
+        self.assertFalse(MockProblem().is_amicable_number(110))
 
 
 class MockProblem(Problem):
