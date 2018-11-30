@@ -1011,7 +1011,9 @@ class Problem22(Problem):
 
         dir_name = os.path.dirname(__file__)
         path = os.path.join(dir_name, "names.txt")
-        names = open(path).read()
+        o = open(path)
+        names = o.read()
+        o.close()
         names_arr = sorted(names.replace('"', "").split(","))
 
         return sum([(x[0] + 1) * word_sum(x[1]) for x in enumerate(names_arr)])
