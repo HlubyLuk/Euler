@@ -8,7 +8,7 @@ import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
-    Problem19, Problem20, Problem21, Problem22
+    Problem19, Problem20, Problem21, Problem22, Problem23
 
 
 class Test(unittest.TestCase):
@@ -115,6 +115,15 @@ class Test(unittest.TestCase):
 
     def test_problem22(self):
         self.assertEqual(871198282, Problem22().solve())
+
+    def test_problem23(self):
+        self.assertEqual(4179871, Problem23().solve())
+
+    def test_is_abundant_ok(self):
+        self.assertTrue(MockProblem().is_abundant(12))
+
+    def test_is_abundant_ko(self):
+        self.assertFalse(MockProblem().is_abundant(17))
 
 
 class MockProblem(Problem):
