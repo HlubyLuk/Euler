@@ -3,13 +3,12 @@ Created on Nov 3, 2018
 
 @author: HlubyLuk
 '''
-from test.test_contains import seq
 import unittest
 
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
-    Problem19, Problem20, Problem21, Problem22, Problem23, Problem24
+    Problem19, Problem20, Problem21, Problem22, Problem23, Problem24, Problem25
 
 
 class Test(unittest.TestCase):
@@ -142,6 +141,15 @@ class Test(unittest.TestCase):
     def test_next_lexigonal_permutation_false(self):
         self.assertFalse(MockProblem.Permutation(
         ).next_lexigonal_permutation([4, 3, 2, 1]))
+
+    def test_problem25(self):
+        self.assertEqual(4782, Problem25().solve())
+
+    def test_fibonacci_sequence_ok(self):
+        self.assertEqual((2, 3), MockProblem().next_fibonacci(1, 2))
+
+    def test_fibonacci_sequence_ko(self):
+        self.assertNotEqual((3, 5), MockProblem().next_fibonacci(1, 2))
 
 
 class MockProblem(Problem):
