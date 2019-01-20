@@ -11,6 +11,40 @@ import math
 
 class Problem(ABC):
 
+    class Permutation(object):
+
+        def __init__(self):
+            pass
+
+        def _reverse(self, value, start, end):
+            while start < end:
+                self._swap(value, start, end)
+
+                start += 1
+                end -= 1
+
+        def _swap(self, value, k, l):
+            tmp = value[k]
+            value[k] = value[l]
+            value[l] = tmp
+
+        def next_lexigonal_permutation(self, current):
+            pivot_k = len(current) - 2
+            while pivot_k >= 0 and current[pivot_k] >= current[pivot_k + 1]:
+                pivot_k -= 1
+
+            if pivot_k == -1:
+                return False
+
+            pivot_l = len(current) - 1
+            while current[pivot_k] >= current[pivot_l]:
+                pivot_l -= 1
+
+            self._swap(current, pivot_k, pivot_l)
+            self._reverse(current, pivot_k + 1, len(current) - 1)
+
+            return True
+
     @abstractmethod
     def solve(self):
         '''
@@ -1058,6 +1092,34 @@ class Problem23(Problem):
 
         return sum(set(range(1, limit)) - cache)
         # return sum([x for x in range(1, limit) if x not in cache])
+
+
+class Problem24(Problem):
+    '''
+    Lexicographic permutations
+    Problem 24
+    A permutation is an ordered arrangement of objects. For example, 3124 is
+    one possible permutation of the digits 1, 2, 3 and 4. If all of the
+    permutations are listed numerically or alphabetically, we call it
+    lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
+
+    012   021   102   120   201   210
+
+    What is the millionth lexicographic permutation of the digits
+    0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+    '''
+
+    def solve(self):
+        seq = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        perm = self.Permutation()
+
+        i = 1
+        while i < 1000000:
+            perm.next_lexigonal_permutation(seq)
+            i += 1
+
+        return int(reduce(lambda x, y: "{}{}".format(x, y), seq))
 
 
 if __name__ == '__main__':

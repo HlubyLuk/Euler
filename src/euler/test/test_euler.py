@@ -3,12 +3,13 @@ Created on Nov 3, 2018
 
 @author: HlubyLuk
 '''
+from test.test_contains import seq
 import unittest
 
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
-    Problem19, Problem20, Problem21, Problem22, Problem23
+    Problem19, Problem20, Problem21, Problem22, Problem23, Problem24
 
 
 class Test(unittest.TestCase):
@@ -124,6 +125,23 @@ class Test(unittest.TestCase):
 
     def test_is_abundant_ko(self):
         self.assertFalse(MockProblem().is_abundant(17))
+
+    def test_problem24(self):
+        self.assertEqual(2783915460, Problem24().solve())
+
+    def test_next_lexigonal_permutation_ok(self):
+        seq = [1, 2, 3, 4]
+        MockProblem.Permutation().next_lexigonal_permutation(seq)
+
+        self.assertListEqual([1, 2, 4, 3], seq)
+
+    def test_next_lexigonal_permutation_true(self):
+        self.assertTrue(MockProblem.Permutation(
+        ).next_lexigonal_permutation([1, 2, 3, 4]))
+
+    def test_next_lexigonal_permutation_false(self):
+        self.assertFalse(MockProblem.Permutation(
+        ).next_lexigonal_permutation([4, 3, 2, 1]))
 
 
 class MockProblem(Problem):
