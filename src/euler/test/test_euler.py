@@ -1,3 +1,6 @@
+# coding: UTF-8
+
+
 '''
 Created on Nov 3, 2018
 
@@ -41,7 +44,8 @@ class Test(unittest.TestCase):
         self.assertEqual(42, MockProblem().lcm([6, 21]))
 
     def test_primeFactors(self):
-        self.assertEqual({2: 2, 3: 1, 5: 1}, MockProblem().prime_factors(60))
+        factors = {2: 2, 3: 1, 5: 1}
+        self.assertDictEqual(factors, MockProblem().prime_factors(60))
 
     def testIsPalindromic(self):
         self.assertTrue(MockProblem().is_palindromic(990099))
@@ -65,8 +69,8 @@ class Test(unittest.TestCase):
         self.assertEqual(142913828922, Problem10().solve())
 
     def test_eratosthenes_sief(self):
-        self.assertEqual([True, True, False, False, True, False, True, False],
-                         MockProblem().eratosthenes_sief(7))
+        sieve = [True, True, False, False, True, False, True, False]
+        self.assertListEqual(sieve, MockProblem().eratosthenes_sief(7))
 
     def test_problem11(self):
         self.assertEqual(70600674, Problem11().solve())
@@ -131,16 +135,15 @@ class Test(unittest.TestCase):
     def test_next_lexigonal_permutation_ok(self):
         seq = [1, 2, 3, 4]
         MockProblem.Permutation().next_lexigonal_permutation(seq)
-
         self.assertListEqual([1, 2, 4, 3], seq)
 
     def test_next_lexigonal_permutation_true(self):
-        self.assertTrue(MockProblem.Permutation(
-        ).next_lexigonal_permutation([1, 2, 3, 4]))
+        perm = MockProblem.Permutation()
+        self.assertTrue(perm.next_lexigonal_permutation([1, 2, 3, 4]))
 
     def test_next_lexigonal_permutation_false(self):
-        self.assertFalse(MockProblem.Permutation(
-        ).next_lexigonal_permutation([4, 3, 2, 1]))
+        perm = MockProblem.Permutation()
+        self.assertFalse(perm.next_lexigonal_permutation([4, 3, 2, 1]))
 
     def test_problem25(self):
         self.assertEqual(4782, Problem25().solve())

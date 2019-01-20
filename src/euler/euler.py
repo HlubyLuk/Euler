@@ -1,12 +1,15 @@
+# coding: UTF-8
 
 '''
 Created on Nov 3, 2018
 
 @author: HlubyLuk
 '''
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 from functools import reduce
-import math
+from math import pow
+from math import sqrt
 
 
 class Problem(ABC):
@@ -67,7 +70,7 @@ class Problem(ABC):
                     cache.update({k: tmp + v - tmp})
 
         return reduce(lambda a, b: a * b,
-                      map(lambda x: math.pow(x[0], x[1]), cache.items()))
+                      map(lambda x: pow(x[0], x[1]), cache.items()))
 
     def prime_factors(self, x):
         '''
@@ -127,7 +130,7 @@ class Problem(ABC):
         sieve = [False] * (number + 1)
         sieve[0], sieve[1] = True, True
 
-        for item in range(2, int(math.sqrt(number)) + 1):
+        for item in range(2, int(sqrt(number)) + 1):
             if sieve[item]:
                 continue
 
@@ -300,7 +303,7 @@ class Problem6(Problem):
     def solve(self):
         seq = [x for x in range(1, 101, 1)]
 
-        return math.pow(sum(seq), 2) - sum(map(lambda x: math.pow(x, 2), seq))
+        return pow(sum(seq), 2) - sum(map(lambda x: pow(x, 2), seq))
 
 
 class Problem7(Problem):
@@ -554,7 +557,7 @@ class Problem12(Problem):
         divisors = []
 
         while True:
-            divisors = [x for x in range(1, int(math.sqrt(triangle)) + 1)
+            divisors = [x for x in range(1, int(sqrt(triangle)) + 1)
                         if triangle % x == 0]
 
             count = len(divisors) * 2
@@ -869,7 +872,7 @@ class Problem16(Problem):
     '''
 
     def solve(self):
-        powerd = int(math.pow(2, 1000))
+        powerd = int(pow(2, 1000))
 
         cache = []
         while powerd != 0:
@@ -1172,5 +1175,32 @@ class Problem25(Problem):
 
 
 if __name__ == '__main__':
-    print(Problem25().solve())
+    # import time
+    # start = time.time()
+    # Problem1().solve()
+    # Problem2().solve()
+    # Problem3().solve()
+    # Problem4().solve()
+    # Problem5().solve()
+    # Problem6().solve()
+    # Problem7().solve()
+    # Problem8().solve()
+    # Problem9().solve()
+    # Problem10().solve()
+    # Problem11().solve()
+    # Problem12().solve()
+    # Problem13().solve()
+    # Problem14().solve()
+    # Problem15().solve()
+    # Problem16().solve()
+    # # Problem17().solve()
+    # Problem18().solve()
+    # Problem19().solve()
+    # Problem20().solve()
+    # Problem21().solve()
+    # Problem22().solve()
+    # Problem23().solve()
+    # Problem24().solve()
+    # Problem25().solve()
+    # print(time.time() - start)
     pass
