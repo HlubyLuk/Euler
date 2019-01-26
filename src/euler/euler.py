@@ -5,14 +5,15 @@ Created on Nov 3, 2018
 
 @author: HlubyLuk
 '''
-from abc import ABC
+from abc import ABCMeta
 from abc import abstractmethod
 from functools import reduce
 from math import pow
 from math import sqrt
 
 
-class Problem(ABC):
+class Problem(object):
+    __metaclass__ = ABCMeta
 
     class Permutation(object):
 
@@ -1007,7 +1008,7 @@ class Problem20(Problem):
     '''
 
     def solve(self):
-        return sum(map(lambda x: int(x), repr(self.factorial(100))))
+        return sum(map(lambda x: int(x), str(self.factorial(100))))
 
 
 class Problem21(Problem):
