@@ -11,7 +11,8 @@ import unittest
 from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
-    Problem19, Problem20, Problem21, Problem22, Problem23, Problem24, Problem25, Problem26
+    Problem19, Problem20, Problem21, Problem22, Problem23, Problem24, Problem25, Problem26,\
+    Problem27
 
 
 class Test(unittest.TestCase):
@@ -154,8 +155,11 @@ class Test(unittest.TestCase):
     def test_fibonacci_sequence_ko(self):
         self.assertNotEqual((3, 5), MockProblem().next_fibonacci(1, 2))
 
-    def text_problem26(self):
+    def test_problem26(self):
         self.assertEqual(983, Problem26().solve())
+
+    def test_problem27(self):
+        self.assertEqual(-59231, Problem27().solve())
 
 
 class MockProblem(Problem):

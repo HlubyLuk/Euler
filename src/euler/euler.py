@@ -1226,6 +1226,52 @@ class Problem26(Problem):
         return longes_recurring[1]
 
 
+class Problem27(Problem):
+    '''
+    Quadratic primes
+    Problem 27
+    Euler discovered the remarkable quadratic formula:
+
+    n^2+n+41
+    It turns out that the formula will produce 40 primes for the consecutive
+    integer values 0≤n≤39. However, when n=40,40^2+40+41=40(40+1)+41 is
+    divisible by 41, and certainly when n=41,41^2+41+41 is clearly divisible
+    by 41.
+
+    The incredible formula n^2−79n+1601 was discovered, which produces 80
+    primes for the consecutive values 0≤n≤79. The product of the
+    coefficients, −79 and 1601, is −126479.
+
+    Considering quadratics of the form:
+
+    n^2+an+b, where |a|<1000 and |b|≤1000
+
+    where |n| is the modulus/absolute value of n
+    e.g. |11|=11 and |−4|=4
+    Find the product of the coefficients, a and b, for the quadratic
+    expression that produces the maximum number of primes for consecutive
+    values of n, starting with n=0.
+    '''
+
+    def solve(self):
+        minimum, maximum = -1000, 1000
+        n, a, b = 0, 0, 0
+
+        for i_a in range(minimum + 1, maximum, 1):
+            for i_b in range(minimum, maximum + 1, 1):
+                i_n = 0
+                while True:
+                    tmp = pow(i_n, 2) + i_n * i_a + i_b
+                    if tmp < 0 or not self.is_prime(tmp):
+                        break
+                    i_n += 1
+
+                if n < i_n:
+                    n, a, b = i_n, i_a, i_b
+
+        return a * b
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1255,5 +1301,6 @@ if __name__ == '__main__':
     # Problem24().solve()
     # Problem25().solve()
     # Problem26().solve()
+    # print(Problem27().solve())
     # print(time.time() - start)
     pass
