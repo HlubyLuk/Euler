@@ -12,7 +12,7 @@ from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem6, Problem7, Problem8, Problem, Problem9, Problem10, Problem11, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
     Problem19, Problem20, Problem21, Problem22, Problem23, Problem24, Problem25, Problem26,\
-    Problem27, Problem28, Problem29, Problem30, Problem31
+    Problem27, Problem28, Problem29, Problem30, Problem31, Problem32
 
 
 class Test(unittest.TestCase):
@@ -176,6 +176,9 @@ class Test(unittest.TestCase):
     def test_coins_solver_ok(self):
         ccs = MockProblem.CoinsChangeSolver([1, 2, 3], 4)
         self.assertEqual(4, ccs.solve())
+
+    def test_problem32(self):
+        self.assertEqual(45228, Problem32().solve())
 
 
 class MockProblem(Problem):
