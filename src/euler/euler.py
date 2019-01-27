@@ -15,6 +15,42 @@ from math import sqrt
 class Problem(object):
     __metaclass__ = ABCMeta
 
+    class CoinsChangeSolver(object):
+        '''
+        Help solve how many combinations should change target value.
+        :see
+        https://hackernoon.com/the-coin-change-problem-explained-ddd035a8f22f
+        '''
+
+        def __init__(self, values, target):
+            '''
+            Constructor.
+            :values `list` of coins.
+            :target price.
+            '''
+            self.v = values
+            self.c = target
+
+        def solve(self):
+            '''
+            Solve count of combinations.
+            :return count of combinations target value.
+            '''
+            table = [[0 for _ in range(0, len(self.v))]
+                     for _ in range(0, self.c + 1)]
+
+            for i in range(0, len(self.v)):
+                table[0][i] = 1
+
+            for i in range(1, self.c + 1):
+                for j in range(len(self.v)):
+                    x = table[i - self.v[j]][j] if i - self.v[j] >= 0 else 0
+                    y = table[i][j - 1]if j >= 1 else 0
+
+                    table[i][j] = x + y
+
+            return table[-1][-1]
+
     class Permutation(object):
 
         def __init__(self):
@@ -1362,6 +1398,26 @@ class Problem30(Problem):
         return cache
 
 
+class Problem31(Problem):
+    '''
+    Coin sums
+    Problem 31
+    In England the currency is made up of pound, £, and pence, p, and there
+    are eight coins in general circulation:
+
+    1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
+    It is possible to make £2 in the following way:
+
+    1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
+    How many different ways can £2 be made using any number of coins?
+    '''
+
+    def solve(self):
+        values = [1, 2, 5, 10, 20, 50, 100, 200]
+
+        return self.CoinsChangeSolver(values, 200).solve()
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1395,5 +1451,6 @@ if __name__ == '__main__':
     # Problem28().solve()
     # Problem29().solve()
     # Problem30().solve()
+    print(Problem31().solve())
     # print(time.time() - start)
     pass
