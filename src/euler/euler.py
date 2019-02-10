@@ -234,6 +234,15 @@ class Problem(object):
         '''
         return last, second_last + last
 
+    def gcd(self, a, b):
+        '''
+        What is greater common divider.
+        :a first input.
+        :b second input.
+        :return greater common divider.
+        '''
+        return a if b == 0 else self.gcd(b, a % b)
+
 
 class Problem1(Problem):
     '''
@@ -1386,6 +1395,7 @@ class Problem30(Problem):
     '''
 
     def solve(self):
+
         def powers(i):
             return map(lambda x: pow(int(x), 5), str(i))
 
@@ -1469,7 +1479,14 @@ class Problem33(Problem):
     '''
 
     def solve(self):
-        return 0
+        a, b = 1, 1
+        for n in range(1, 10):
+            for d in range(n + 1, 10):
+                for c in range(1, 10):
+                    if ((n * 10 + c) * d == (c * 10 + d) * n):
+                        a, b = a * n, b * d
+
+        return b / self.gcd(a, b)
 
 
 if __name__ == '__main__':
@@ -1507,6 +1524,6 @@ if __name__ == '__main__':
     # Problem30().solve()
     # Problem31().solve()
     # Problem32().solve()
-    print(Problem33().solve())
+    # print(Problem33().solve())
     # print(time.time() - start)
     pass
