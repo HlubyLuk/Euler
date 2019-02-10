@@ -243,6 +243,14 @@ class Problem(object):
         '''
         return a if b == 0 else self.gcd(b, a % b)
 
+    def factorial_lambda(self, x):
+        '''
+        Compute factorial without used recursion.
+        :number input value.
+        :return factorial value of x
+        '''
+        return reduce(lambda y, z: y * z, range(x, 1, -1)) if x > 1 else 1
+
 
 class Problem1(Problem):
     '''
@@ -1489,6 +1497,32 @@ class Problem33(Problem):
         return b / self.gcd(a, b)
 
 
+class Problem34(Problem):
+    '''
+    Digit factorials
+    Problem 34
+    145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
+
+    Find the sum of all numbers which are equal to the sum of the
+    factorial of their digits.
+
+    Note: as 1! = 1 and 2! = 2 are not sums they are not included.
+    '''
+
+    def solve(self):
+
+        def digit_list(x):
+            return map(lambda y: int(y), str(x))
+
+        def factorial_list(x):
+            return map(lambda y: self.factorial_lambda(y), x)
+
+        def curious(x):
+            return sum(factorial_list(digit_list(x))) == x
+
+        return sum([x for x in range(3, self.factorial_lambda(9)) if curious(x)])
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1524,6 +1558,7 @@ if __name__ == '__main__':
     # Problem30().solve()
     # Problem31().solve()
     # Problem32().solve()
-    # print(Problem33().solve())
+    # Problem33().solve()
+    # Problem34().solve()
     # print(time.time() - start)
     pass
