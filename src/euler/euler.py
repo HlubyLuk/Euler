@@ -1556,6 +1556,26 @@ class Problem35(Problem):
         return len([x for x in range(2, 1000000) if all_rotation(x)])
 
 
+class Problem36(Problem):
+    '''
+    Double-base palindromes
+    Problem 36
+    The decimal number, 585 = 1001001001 (binary),
+    is palindromic in both bases.
+
+    Find the sum of all numbers, less than one million,
+    which are palindromic in base 10 and base 2.
+
+    (Please note that the palindromic number,
+    in either base, may not include leading zeros.)
+    '''
+
+    def solve(self):
+        return sum([x for x in range(0, 1000000)
+                    if self.is_palindromic(x)
+                    and self.is_palindromic("{0:b}".format(x))])
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1593,6 +1613,7 @@ if __name__ == '__main__':
     # Problem32().solve()
     # Problem33().solve()
     # Problem34().solve()
-    # print(Problem35().solve())
+    # Problem35().solve()
+    # Problem36().solve()
     # print(time.time() - start)
     pass
