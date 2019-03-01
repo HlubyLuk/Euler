@@ -1576,6 +1576,42 @@ class Problem36(Problem):
                     and self.is_palindromic("{0:b}".format(x))])
 
 
+class Problem37(Problem):
+    '''
+    Truncatable primes
+    Problem 37
+    The number 3797 has an interesting property.
+    Being prime itself, it is possible to continuously
+    remove digits from left to right, and remain prime
+    at each stage: 3797, 797, 97, and 7.
+    Similarly we can work from right to left: 3797, 379, 37, and 3.
+
+    Find the sum of the only eleven primes that are both truncatable
+    from left to right and right to left.
+
+    NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
+    '''
+
+    def solve(self):
+
+        def r_t_l(what):
+            tmp = str(what)
+            if (len(tmp) > 1):
+                return not sieve[int(tmp)] and r_t_l(tmp[1:])
+            else:
+                return not sieve[int(tmp)]
+
+        def l_t_r(what):
+            tmp = str(what)
+            if (len(tmp) > 1):
+                return not sieve[int(tmp)] and l_t_r(tmp[0:-1])
+            else:
+                return not sieve[int(tmp)]
+
+        sieve = self.eratosthenes_sief(1000000)
+        return sum([x for x in range(10, 1000000) if r_t_l(x) and l_t_r(x)])
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1615,5 +1651,6 @@ if __name__ == '__main__':
     # Problem34().solve()
     # Problem35().solve()
     # Problem36().solve()
+    # Problem37().solve()
     # print(time.time() - start)
     pass
