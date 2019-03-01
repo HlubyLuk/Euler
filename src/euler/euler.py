@@ -1523,6 +1523,39 @@ class Problem34(Problem):
         return sum([x for x in range(3, self.factorial_lambda(9)) if curious(x)])
 
 
+class Problem35(Problem):
+    '''
+    Circular primes
+    Problem 35
+    The number, 197, is called a circular prime because all rotations of the
+    digits: 197, 971, and 719, are themselves prime.
+
+    There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37,
+    71, 73, 79, and 97.
+
+    How many circular primes are there below one million?
+    '''
+
+    def solve(self):
+
+        def rotation(what):
+            return what[-1] + what[:-1]
+
+        def all_rotation(what):
+            tmp = str(what)
+            for _ in range(len(tmp)):
+                # if not self.is_prime(int(tmp)):
+                if sieve[int(tmp)]:
+                    return False
+
+                tmp = rotation(tmp)
+
+            return True
+
+        sieve = self.eratosthenes_sief(1000000)
+        return len([x for x in range(2, 1000000) if all_rotation(x)])
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1560,5 +1593,6 @@ if __name__ == '__main__':
     # Problem32().solve()
     # Problem33().solve()
     # Problem34().solve()
+    # print(Problem35().solve())
     # print(time.time() - start)
     pass

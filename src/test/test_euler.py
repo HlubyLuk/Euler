@@ -12,7 +12,7 @@ from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem12, Problem13, Problem14, Problem15, Problem16, Problem18, \
     Problem19, Problem20, Problem21, Problem22, Problem23, Problem24, \
     Problem25, Problem26, Problem27, Problem28, Problem29, Problem30, \
-    Problem31, Problem32, Problem33, Problem34
+    Problem31, Problem32, Problem33, Problem34, Problem35
 
 
 class Test(unittest.TestCase):
@@ -197,6 +197,9 @@ class Test(unittest.TestCase):
 
     def test_factorial_lambda_ko(self):
         self.assertNotEqual(121, MockProblem().factorial_lambda(5))
+
+    def test_problem35(self):
+        self.assertEqual(55, Problem35().solve())
 
 
 class MockProblem(Problem):
