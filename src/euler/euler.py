@@ -1655,6 +1655,40 @@ class Problem38(Problem):
         return max([analyze(x) for x in range(2, 10000)])
 
 
+class Problem39(Problem):
+    '''
+    Integer right triangles
+
+    Problem 39
+    If p is the perimeter of a right angle triangle
+    with integral length sides, {a,b,c},
+    there are exactly three solutions for p = 120.
+
+    {20,48,52}, {24,45,51}, {30,40,50}
+
+    For which value of p ≤ 1000, is the number of solutions maximised?
+    '''
+
+    def solve(self):
+        cache, ret = 0, 0
+
+        for p in range(1, 1001):
+            count = 0
+
+            for a in range(1, p // 2):
+                for b in range(1, p // 3):
+                    c = sqrt(a * a + b * b)
+
+                    if a + b + c == p:
+                        count += 1
+
+            if cache < count:
+                cache = count
+                ret = p
+
+        return ret
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1696,5 +1730,6 @@ if __name__ == '__main__':
     # Problem36().solve()
     # Problem37().solve()
     # Problem38().solve()
+    # Problem39().solve()
     # print(time.time() - start)
     pass
