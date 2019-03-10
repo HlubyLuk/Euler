@@ -1689,6 +1689,36 @@ class Problem39(Problem):
         return ret
 
 
+class Problem40(Problem):
+    '''
+    Champernowne's constant
+
+    Problem 40
+    An irrational decimal fraction is created by
+    concatenating the positive integers:
+
+    0.123456789101112131415161718192021...
+
+    It can be seen that the 12th digit of the fractional part is 1.
+
+    If dn represents the nth digit of the fractional part,
+    find the value of the following expression.
+
+    d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
+    '''
+
+    def solve(self):
+        champernowne_constant = ""
+        for item in range(1, int(pow(10, 7)) + 1):
+            champernowne_constant += str(item)
+
+        value = 1
+        for to in range(7):
+            value *= int(champernowne_constant[int(pow(10, to)) - 1])
+
+        return value
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1731,5 +1761,6 @@ if __name__ == '__main__':
     # Problem37().solve()
     # Problem38().solve()
     # Problem39().solve()
+    # Problem40().solve()
     # print(time.time() - start)
     pass

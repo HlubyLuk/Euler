@@ -13,7 +13,7 @@ from euler.euler import Problem1, Problem2, Problem3, Problem4, Problem5, \
     Problem19, Problem20, Problem21, Problem22, Problem23, Problem24, \
     Problem25, Problem26, Problem27, Problem28, Problem29, Problem30, \
     Problem31, Problem32, Problem33, Problem34, Problem35, Problem36, \
-    Problem37, Problem38, Problem39
+    Problem37, Problem38, Problem39, Problem40
 
 
 class Test(unittest.TestCase):
@@ -213,6 +213,9 @@ class Test(unittest.TestCase):
 
     def test_problem39(self):
         self.assertEqual(840, Problem39().solve())
+
+    def test_problem40(self):
+        self.assertEqual(210, Problem40().solve())
 
 
 class MockProblem(Problem):
