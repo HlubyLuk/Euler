@@ -251,6 +251,15 @@ class Problem(object):
         '''
         return reduce(lambda y, z: y * z, range(x, 1, -1)) if x > 1 else 1
 
+    def is_pandigital(self, what):
+        '''
+        Input contain all digits from 1 to 9.
+        :what input number
+        :return `True` contains all digits, otherwise `False`.
+        '''
+        tmp = reduce(lambda x, y:"{}{}".format(x, y), sorted(str(what)))
+        return "123456789" == tmp
+
 
 class Problem1(Problem):
     '''
@@ -1634,17 +1643,13 @@ class Problem38(Problem):
 
     def solve(self):
 
-        def is_pandigital(what):
-            tmp = reduce(lambda x, y:"{}{}".format(x, y), sorted(str(what)))
-            return "123456789" == tmp
-
         def analyze(x):
             tmp = str(x)
 
             for y in range(2, 10):
                 tmp = "{}{}".format(tmp, x * y)
 
-                if (is_pandigital(tmp)):
+                if (self.is_pandigital(tmp)):
                     return int(tmp)
 
                 if len(tmp) > 9:
@@ -1719,14 +1724,36 @@ class Problem40(Problem):
         return value
 
 
-__all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
-           "Problem5", "Problem6", "Problem7", "Problem8", "Problem9", \
-           "Problem10", "Problem11", "Problem12", "Problem13", "Problem14", \
-           "Problem15", "Problem16", "Problem18", "Problem19", "Problem20", \
-           "Problem21", "Problem22", "Problem23", "Problem24", "Problem25", \
-           "Problem26", "Problem27", "Problem28", "Problem29", "Problem30", \
-           "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
-           "Problem36", "Problem37", "Problem38", "Problem39", "Problem40"]
+class Problem41(Problem):
+    '''
+    Pandigital prime
+
+    Problem 41
+    We shall say that an n-digit number is pandigital
+    if it makes use of all the digits 1 to n exactly once.
+    For example, 2143 is a 4-digit pandigital and is also prime.
+
+    What is the largest n-digit pandigital prime that exists?
+    '''
+
+    def solve(self):
+        result = 0
+        generator = self.Permutation()
+
+        for item in range(1, 10):
+            cache = [x for x in range(1, item + 1)]
+
+            while True:
+                r = reduce(lambda x, y: x * 10 + y, cache)
+
+                if result < r and self.is_prime(r):
+                    result = r
+
+                if not generator.next_lexigonal_permutation(cache):
+                    break
+
+        return result
+
 
 if __name__ == '__main__':
     # import time
@@ -1771,5 +1798,16 @@ if __name__ == '__main__':
     # Problem38().solve()
     # Problem39().solve()
     # Problem40().solve()
+    # Problem41().solve()
     # print(time.time() - start)
     pass
+
+__all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
+           "Problem5", "Problem6", "Problem7", "Problem8", "Problem9", \
+           "Problem10", "Problem11", "Problem12", "Problem13", "Problem14", \
+           "Problem15", "Problem16", "Problem18", "Problem19", "Problem20", \
+           "Problem21", "Problem22", "Problem23", "Problem24", "Problem25", \
+           "Problem26", "Problem27", "Problem28", "Problem29", "Problem30", \
+           "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
+           "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
+           "Problem41"]
