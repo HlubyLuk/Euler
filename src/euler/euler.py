@@ -1755,6 +1755,58 @@ class Problem41(Problem):
         return result
 
 
+class Problem42(Problem):
+    '''
+    Coded triangle numbers
+
+    Problem 42
+    The nth term of the sequence of triangle numbers is given by,
+    tn = ½n(n+1); so the first ten triangle numbers are:
+
+    1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...
+
+    By converting each letter in a word to a number corresponding
+    to its alphabetical position and adding these values we form a word value.
+    For example, the word value for SKY is 19 + 11 + 25 = 55 = t10.
+    If the word value is a triangle number then we shall call the word
+    a triangle word.
+
+    Using words.txt (right click and 'Save Link/Target As...'),
+    a 16K text file containing nearly two-thousand common English words,
+    how many are triangle words?
+    '''
+
+    def solve(self):
+        from os import path
+        ord_a = ord('A') - 1
+
+        def word_to_value(word):
+            return sum(map(lambda x: ord(x) - ord_a, str(word)))
+
+        root_dir = path.dirname(__file__)
+        path_words = path.join(root_dir, "words.txt")
+        file_open = open(path_words)
+        file_words = [x.split(",") for x in file_open.readlines()]
+        file_flat_word = reduce(lambda x, y: x + y, file_words)
+        words = [str(x).replace("\"", "") for x in file_flat_word]
+        word_values = [word_to_value(x) for x in words]
+        word_max_value = max(word_values)
+
+        x = 1
+
+        triangle_cache = list()
+        while True:
+            triangle = x * (x + 1) / 2
+
+            if triangle > word_max_value:
+                break
+
+            triangle_cache.append(triangle)
+            x += 1
+
+        return len(filter(lambda x: x in triangle_cache, word_values))
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1799,6 +1851,7 @@ if __name__ == '__main__':
     # Problem39().solve()
     # Problem40().solve()
     # Problem41().solve()
+    # Problem42().solve()
     # print(time.time() - start)
     pass
 
@@ -1810,4 +1863,4 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem26", "Problem27", "Problem28", "Problem29", "Problem30", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
-           "Problem41"]
+           "Problem41", "Problem42"]
