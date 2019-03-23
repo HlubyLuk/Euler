@@ -1807,9 +1807,53 @@ class Problem42(Problem):
         return len(filter(lambda x: x in triangle_cache, word_values))
 
 
+class Problem43(Problem):
+    '''
+    Sub-string divisibility
+
+    Problem 43
+    The number, 1406357289, is a 0 to 9 pandigital number because
+    it is made up of each of the digits 0 to 9 in some order,
+    but it also has a rather interesting sub-string divisibility property.
+
+    Let d1 be the 1st digit, d2 be the 2nd digit,
+    and so on. In this way, we note the following:
+
+    d2d3d4=406 is divisible by 2
+    d3d4d5=063 is divisible by 3
+    d4d5d6=635 is divisible by 5
+    d5d6d7=357 is divisible by 7
+    d6d7d8=572 is divisible by 11
+    d7d8d9=728 is divisible by 13
+    d8d9d10=289 is divisible by 17
+    Find the sum of all 0 to 9 pandigital numbers with this property.
+    '''
+
+    def solve(self):
+        ret = 0
+        arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+        divisibles = [2, 3, 5, 7, 11, 13, 17]
+
+        def seq_int(seq):
+            return reduce(lambda x, y: x * 10 + y, seq)
+
+        perm = Problem.Permutation()
+        while True:
+            for i, d in enumerate(divisibles):
+                if seq_int(arr[i + 1:i + 4]) % d != 0:
+                    break
+                elif d == divisibles[-1]:
+                    ret += seq_int(arr)
+
+            if not perm.next_lexigonal_permutation(arr):
+                break
+
+        return ret
+
+
 if __name__ == '__main__':
-    # import time
-    # start = time.time()
+    import time
+    start = time.time()
     # Problem1().solve()
     # Problem2().solve()
     # Problem3().solve()
@@ -1852,7 +1896,8 @@ if __name__ == '__main__':
     # Problem40().solve()
     # Problem41().solve()
     # Problem42().solve()
-    # print(time.time() - start)
+    Problem43().solve()
+    print(time.time() - start)
     pass
 
 __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
@@ -1863,4 +1908,4 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem26", "Problem27", "Problem28", "Problem29", "Problem30", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
-           "Problem41", "Problem42"]
+           "Problem41", "Problem42", "Problem43"]
