@@ -1852,8 +1852,8 @@ class Problem43(Problem):
 
 
 if __name__ == '__main__':
-    import time
-    start = time.time()
+    # import time
+    # start = time.time()
     # Problem1().solve()
     # Problem2().solve()
     # Problem3().solve()
@@ -1896,8 +1896,8 @@ if __name__ == '__main__':
     # Problem40().solve()
     # Problem41().solve()
     # Problem42().solve()
-    Problem43().solve()
-    print(time.time() - start)
+    # Problem43().solve()
+    # print(time.time() - start)
     pass
 
 __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
