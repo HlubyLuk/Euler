@@ -1900,6 +1900,47 @@ class Problem44(Problem):
         return 0
 
 
+class Problem45(Problem):
+    '''
+    Triangular, pentagonal, and hexagonal
+
+    Problem 45
+    Triangle, pentagonal, and hexagonal numbers are generated
+    by the following formulae:
+
+    Triangle         Tn=n(n+1)/2        1, 3, 6, 10, 15, ...
+    Pentagonal       Pn=n(3n−1)/2       1, 5, 12, 22, 35, ...
+    Hexagonal        Hn=n(2n−1)         1, 6, 15, 28, 45, ...
+    It can be verified that T285 = P165 = H143 = 40755.
+
+    Find the next triangle number that is also pentagonal and hexagonal.
+    '''
+
+    def solve(self):
+
+        def triangle_number(x):
+            return x * (x + 1) / 2
+
+        def is_triangle(x):
+            return (sqrt(8 * x + 1) - 1) / 2 % 1 == 0
+
+        def is_pentagona(x):
+            return sqrt(24 * x + 1) % 6 == 5
+        
+        def is_hexagonal(x):
+            return (sqrt(8 * x + 1) + 1) / 4 % 1 == 0
+
+        x = 285 + 1
+        while True:
+            triangle = triangle_number(x)
+            if is_pentagona(triangle) and is_hexagonal(triangle):
+                return triangle
+            else:
+                x += 1
+
+        return 0
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1947,6 +1988,7 @@ if __name__ == '__main__':
     # Problem42().solve()
     # Problem43().solve()
     # Problem44().solve()
+    # Problem45().solve()
     # print(time.time() - start)
     pass
 
@@ -1958,4 +2000,4 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem26", "Problem27", "Problem28", "Problem29", "Problem30", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
-           "Problem41", "Problem42", "Problem43", "Problem44"]
+           "Problem41", "Problem42", "Problem43", "Problem44", "Problem45"]
