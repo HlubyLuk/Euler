@@ -228,6 +228,9 @@ class Test(unittest.TestCase):
     def test_problem46(self):
         self.assertEqual(5777, Problem46().solve())
 
+    def test_problem47(self):
+        self.assertEqual(134043, Problem47().solve())
+
 
 class MockProblem(Problem):
 

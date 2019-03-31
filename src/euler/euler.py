@@ -1987,6 +1987,46 @@ class Problem46(Problem):
         return 0
 
 
+class Problem47(Problem):
+    '''
+    Distinct primes factors
+
+    Problem 47
+    The first two consecutive numbers to have two distinct prime factors are:
+
+    14 = 2 × 7
+    15 = 3 × 5
+
+    The first three consecutive numbers
+    to have three distinct prime factors are:
+
+    644 = 2² × 7 × 23
+    645 = 3 × 5 × 43
+    646 = 2 × 17 × 19.
+
+    Find the first four consecutive integers
+    to have four distinct prime factors each.
+    What is the first of these numbers?
+    '''
+
+    def solve(self):
+        consecutive_len = 4
+
+        def consecutive(x):
+            for y in range(x, x + consecutive_len):
+                if len(self.prime_factors(y)) != consecutive_len:
+                    return False
+            return True
+
+        x = 1
+        while x <= 134043:
+            if consecutive(x):
+                return x
+            else:
+                x += 1
+        return 0
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -2036,6 +2076,7 @@ if __name__ == '__main__':
     # Problem44().solve()
     # Problem45().solve()
     # Problem46().solve()
+    # Problem47().solve()
     # print(time.time() - start)
     pass
 
@@ -2048,4 +2089,4 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
            "Problem41", "Problem42", "Problem43", "Problem44", "Problem45", \
-           "Problem46"]
+           "Problem46", "Problem47"]
