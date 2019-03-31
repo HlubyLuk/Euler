@@ -2086,6 +2086,47 @@ class Problem49(Problem):
         return 0
 
 
+class Problem50(Problem):
+    '''
+    Consecutive prime sum
+
+    Problem 50
+    The prime 41, can be written as the sum of six consecutive primes:
+
+    41 = 2 + 3 + 5 + 7 + 11 + 13
+    This is the longest sum of consecutive primes that adds
+    to a prime below one-hundred.
+
+    The longest sum of consecutive primes below one-thousand that adds
+    to a prime, contains 21 terms, and is equal to 953.
+
+    Which prime, below one-million, can be written as the sum of
+    the most consecutive primes?
+    '''
+
+    def solve(self):
+        limit = 1000000
+
+        prime_sieve = self.eratosthenes_sief(limit)
+        primes = map(lambda x: x[0],
+                     filter(lambda x: not x[1], enumerate(prime_sieve)))
+
+        tmp = (0, 0)
+        primes_len = len(primes)
+        for i in range(primes_len):
+            s = 0
+
+            for idx, j in enumerate(range(i + 1, primes_len)):
+                s += primes[j]
+
+                if limit < s:
+                    break
+                elif not prime_sieve[s] and tmp[0] < idx:
+                    tmp = (idx, s)
+
+        return tmp[1]
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -2138,6 +2179,7 @@ if __name__ == '__main__':
     # Problem47().solve()
     # Problem48().solve()
     # Problem49().solve()
+    # Problem50().solve()
     # print(time.time() - start)
     pass
 
@@ -2150,4 +2192,4 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
            "Problem41", "Problem42", "Problem43", "Problem44", "Problem45", \
-           "Problem46", "Problem47", "Problem48", "Problem49"]
+           "Problem46", "Problem47", "Problem48", "Problem49", "Problem50"]
