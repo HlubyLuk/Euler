@@ -2045,6 +2045,47 @@ class Problem48(Problem):
         return int(str(tmp)[-10::])
 
 
+class Problem49(Problem):
+    '''
+    Prime permutations
+
+    Problem 49
+    The arithmetic sequence, 1487, 4817, 8147,
+    in which each of the terms increases by 3330,
+    is unusual in two ways: (i) each of the three terms are prime,
+    and, (ii) each of the 4-digit numbers are permutations of one another.
+
+    There are no arithmetic sequences made up of
+    three 1-, 2-, or 3-digit primes, exhibiting this property,
+    but there is one other 4-digit increasing sequence.
+
+    What 12-digit number do you form by concatenating
+    the three terms in this sequence?
+    '''
+
+    def solve(self):
+
+        def same_digit(a, b, c):
+            a_str = sorted(str(a))
+            b_str = sorted(str(b))
+            c_str = sorted(str(c))
+            return a_str == b_str and b_str == c_str
+
+        stop = 10000
+        start = stop / 10
+
+        primes = self.eratosthenes_sief(stop)
+        for x in range(start, stop)[::-1]:
+            if not primes[x]:
+                for y in range(start, stop):
+                    a, b = x + y, x + 2 * y
+
+                    if same_digit(a, b, x) and not primes[a] and not primes[b]:
+                        return reduce(lambda x, y: x * 10000 + y, [x, a, b])
+
+        return 0
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -2096,6 +2137,7 @@ if __name__ == '__main__':
     # Problem46().solve()
     # Problem47().solve()
     # Problem48().solve()
+    # Problem49().solve()
     # print(time.time() - start)
     pass
 
@@ -2108,4 +2150,4 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
            "Problem41", "Problem42", "Problem43", "Problem44", "Problem45", \
-           "Problem46", "Problem47", "Problem48"]
+           "Problem46", "Problem47", "Problem48", "Problem49"]
