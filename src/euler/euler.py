@@ -1941,6 +1941,52 @@ class Problem45(Problem):
         return 0
 
 
+class Problem46(Problem):
+    '''
+    Goldbach's other conjecture
+
+    Problem 46
+    It was proposed by Christian Goldbach that every odd composite number
+    can be written as the sum of a prime and twice a square.
+
+    9 = 7 + 2×1^2
+    15 = 7 + 2×2^2
+    21 = 3 + 2×3^2
+    25 = 7 + 2×3^2
+    27 = 19 + 2×2^2
+    33 = 31 + 2×1^2
+
+    It turns out that the conjecture was false.
+
+    What is the smallest odd composite that cannot be written
+    as the sum of a prime and twice a square?
+    '''
+
+    def solve(self):
+
+        def analyze(x):
+            primes = self.eratosthenes_sief(x)
+            if x % 2 == 0 or not primes[-1]:
+                return False
+            y = 1
+            while y * y <= x:
+                tmp = x - y * y * 2
+                if tmp < 0:
+                    break
+                if not primes[tmp]:
+                    return  False
+                y += 1
+            return True
+
+        x = 2
+        while x < 5777 + 1:
+            if analyze(x):
+                return x
+            x += 1
+
+        return 0
+
+
 if __name__ == '__main__':
     # import time
     # start = time.time()
@@ -1989,6 +2035,7 @@ if __name__ == '__main__':
     # Problem43().solve()
     # Problem44().solve()
     # Problem45().solve()
+    # Problem46().solve()
     # print(time.time() - start)
     pass
 
@@ -2000,4 +2047,5 @@ __all__ = ["Problem", "Problem1", "Problem2", "Problem3", "Problem4", \
            "Problem26", "Problem27", "Problem28", "Problem29", "Problem30", \
            "Problem31", "Problem32", "Problem33", "Problem34", "Problem35", \
            "Problem36", "Problem37", "Problem38", "Problem39", "Problem40", \
-           "Problem41", "Problem42", "Problem43", "Problem44", "Problem45"]
+           "Problem41", "Problem42", "Problem43", "Problem44", "Problem45", \
+           "Problem46"]
