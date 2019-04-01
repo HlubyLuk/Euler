@@ -57,6 +57,18 @@ class Test(unittest.TestCase):
     def test_pow_fun_ko(self):
         self.assertNotEqual(5, pow_fun(2, 2))
 
+    def test_problem7(self):
+        self.assertEqual(104743, problem7())
+
+    def test_is_prime_13(self):
+        self.assertTrue(is_prime(13))
+
+    def test_is_prime_14(self):
+        self.assertFalse(is_prime(14))
+
+    def test_is_prime_15(self):
+        self.assertFalse(is_prime(15))
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']

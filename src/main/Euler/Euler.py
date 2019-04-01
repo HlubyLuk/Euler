@@ -144,11 +144,52 @@ def problem6():
 def pow_fun(a, b): return a ** b
 
 
+def problem7():
+    '''
+    10001st prime
+
+    Problem 7
+    By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13,
+    we can see that the 6th prime is 13.
+
+    What is the 10 001st prime number?
+    '''
+    count, i = 0, 1
+    while True:
+        count += (0, 1)[is_prime(i)]
+        if count == 10001:
+            return i
+        i += 1
+
+    return 0
+
+
+def is_prime(n):
+    if n < 2:
+        return False
+
+    if n == 2:
+        return True
+
+    if n % 2 == 0:
+        return False
+
+    tmp = 3
+    while tmp * tmp <= n:
+        if n % tmp == 0:
+            return False
+
+        tmp += 2
+
+    return True
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
     # print(problem3())
     # print(problem4())
     # print(problem5())
-    print(problem6())
+    # print(problem6())
+    # print(problem7())
     pass
