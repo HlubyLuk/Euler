@@ -48,6 +48,15 @@ class Test(unittest.TestCase):
     def test_pow_tupple_ko(self):
         self.assertNotEqual(5, pow_tupple((2, 2)))
 
+    def test_problem6(self):
+        self.assertEqual(25164150, problem6())
+
+    def test_pow_fun_ok(self):
+        self.assertEqual(27, pow_fun(3, 3))
+
+    def test_pow_fun_ko(self):
+        self.assertNotEqual(5, pow_fun(2, 2))
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']

@@ -120,10 +120,35 @@ def mul(a, b): return a * b
 def pow_tupple(a): return a[0] ** a[1]
 
 
+def problem6():
+    '''
+    Sum square difference
+
+    Problem 6
+    The sum of the squares of the first ten natural numbers is,
+
+    1^2 + 2^2 + ... + 10^2 = 385
+    The square of the sum of the first ten natural numbers is,
+
+    (1 + 2 + ... + 10)^2 = 552 = 3025
+    Hence the difference between the sum of the squares of the
+    first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+
+    Find the difference between the sum of the squares of
+    the first one hundred natural numbers and the square of the sum.
+    '''
+    r = range(1, 101)
+    return pow_fun(sum(r), 2) - sum(map(lambda a: pow_fun(a, 2), r))
+
+
+def pow_fun(a, b): return a ** b
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
     # print(problem3())
     # print(problem4())
     # print(problem5())
+    print(problem6())
     pass

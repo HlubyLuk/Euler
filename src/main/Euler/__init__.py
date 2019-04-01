@@ -9,5 +9,7 @@ __all__ = [
     "problem5",
     "prime_factorization",
     "mul",
-    "pow_tupple"
+    "pow_tupple",
+    "problem6",
+    "pow_fun",
     ]
