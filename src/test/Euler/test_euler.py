@@ -69,6 +69,9 @@ class Test(unittest.TestCase):
     def test_is_prime_15(self):
         self.assertFalse(is_prime(15))
 
+    def test_problem8(self):
+        self.assertEqual(23514624000, problem8())
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']

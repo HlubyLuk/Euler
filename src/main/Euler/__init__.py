@@ -14,4 +14,5 @@ __all__ = [
     "pow_fun",
     "problem7",
     "is_prime",
+    "problem8",
     ]
