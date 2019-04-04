@@ -264,6 +264,38 @@ def problem9():
     return 0
 
 
+def problem10():
+    '''
+    Summation of primes
+
+    Problem 10
+    The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+    Find the sum of all the primes below two million.
+    '''
+    sieve_enum = enumerate(eratosthenes_sieve(2000000))
+    sieve_filtered = filter(lambda i:not i[1], sieve_enum)
+    primes = map(lambda a: a[0], sieve_filtered)
+    return sum(primes)
+
+
+def eratosthenes_sieve(limit):
+    sieve, idx = [False] * (limit + 1), 2
+    sieve[0] = sieve[1] = True
+
+    while idx * idx < limit:
+        for i in range(idx * 2, limit + 1, idx):
+            sieve[i] = True
+        
+        while True:
+            idx += 1
+
+            if not sieve[idx]:
+                break
+
+    return sieve
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -274,4 +306,5 @@ if __name__ == '__main__':
     # print(problem7())
     # print(problem8())
     # print(problem9())
+    # print(problem10())
     pass
