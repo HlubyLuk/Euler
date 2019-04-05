@@ -78,6 +78,11 @@ class Test(unittest.TestCase):
     def test_problem10(self):
         self.assertEqual(142913828922, problem10())
 
+    def test_eratosthenes_sieve(self):
+        result = [True] * 11
+        result[2] = result[3] = result[5] = result[7] = False
+        self.assertListEqual(result, eratosthenes_sieve(10))
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']
