@@ -83,6 +83,9 @@ class Test(unittest.TestCase):
         result[2] = result[3] = result[5] = result[7] = False
         self.assertListEqual(result, eratosthenes_sieve(10))
 
+    def test_problem11(self):
+        self.assertEqual(70600674, problem11())
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']

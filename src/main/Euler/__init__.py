@@ -18,4 +18,5 @@ __all__ = [
     "problem9",
     "problem10",
     "eratosthenes_sieve",
+    "problem11",
     ]
