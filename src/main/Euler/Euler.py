@@ -364,20 +364,31 @@ def problem11():
                        for j in range(e_m - e_s_m + 1)]
 
     def other(matrix):
-        m = [matrix[i * e_m:i * e_m + e_m:] for i in range(e_m)]
-        a = [m[i + k][j + k]
+
+        def compose(rows):
+            return [rows[i + k][j + k]
              for i in range(e_m - e_s_m + 1)
              for j in range(e_m - e_s_m + 1)
              for k in range(e_s_m)]
-        return [reduce(mul, a[i:i + e_s_m:]) for i in range(len(a))]
+
+        return diagonal_result(compose(rows(matrix)))
 
     def main(matrix):
-        m = [matrix[i * e_m:i * e_m + e_m:] for i in range(e_m)]
-        a = [m[i - e_s_m + k][j - k - 1]
-             for i in range(e_s_m, e_m + 1)
-             for j in range(e_s_m, e_m + 1)
-             for k in range(e_s_m)]
-        return [reduce(mul, a[i:i + e_s_m:]) for i in range(len(a))]
+
+        def compose(rows):
+            return [rows[i - e_s_m + k][j - k - 1]
+                    for i in range(e_s_m, e_m + 1)
+                    for j in range(e_s_m, e_m + 1)
+                    for k in range(e_s_m)]
+
+        return diagonal_result(compose(rows(matrix)))
+
+    def rows(matrix):
+        return [matrix[i * e_m:i * e_m + e_m:] for i in range(e_m)]
+
+    def diagonal_result(composed):
+        return [reduce(mul, composed[i:i + e_s_m:])
+                for i in range(len(composed))]
 
     t = []
     t.extend(main(matrix))
