@@ -19,4 +19,6 @@ __all__ = [
     "problem10",
     "eratosthenes_sieve",
     "problem11",
+    "problem12",
+    "factors_count",
     ]
