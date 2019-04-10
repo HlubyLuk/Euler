@@ -95,6 +95,9 @@ class Test(unittest.TestCase):
     def test_factors_count_21(self):
         self.assertEqual(4, factors_count(21))
 
+    def test_problem13(self):
+        self.assertEqual(5537376230, problem13())
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']
