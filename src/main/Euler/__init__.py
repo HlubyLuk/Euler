@@ -22,4 +22,5 @@ __all__ = [
     "problem12",
     "factors_count",
     "problem13",
+    "problem14",
     ]
