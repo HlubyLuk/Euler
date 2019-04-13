@@ -116,6 +116,9 @@ class Test(unittest.TestCase):
     def test_factorial_5(self):
         self.assertEqual(120, factorial(5))
 
+    def test_problem16(self):
+        self.assertEqual(1366, problem16())
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']

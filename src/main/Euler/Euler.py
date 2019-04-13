@@ -725,6 +725,18 @@ def factorial(n):
     return reduce(mul, range(n, 1, -1))
 
 
+def problem16():
+    '''
+    Power digit sum
+
+    Problem 16
+    2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+
+    What is the sum of the digits of the number 2^1000?
+    '''
+    return sum(map(lambda x: ord(x) - ord('0'), str(pow_fun(2, 1000))))
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -741,4 +753,5 @@ if __name__ == '__main__':
     # print(problem13())
     # print(problem14())
     # print(problem15())
+    # print(problem16())
     pass
