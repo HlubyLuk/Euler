@@ -128,6 +128,18 @@ class Test(unittest.TestCase):
     def test_problem20(self):
         self.assertEqual(648, problem20())
 
+    def test_problem21(self):
+        self.assertEqual(31626, problem21())
+
+    def test_amicable_220(self):
+        self.assertTrue(amicable(220))
+
+    def test_amicable_222(self):
+        self.assertFalse(amicable(222))
+
+    def test_divisors(self):
+        self.assertListEqual([1, 2, 5], divisors(10))
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']
