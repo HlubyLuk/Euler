@@ -27,4 +27,5 @@ __all__ = [
     "binomial_coefficient",
     "factorial",
     "problem16",
+    "problem18",
     ]
