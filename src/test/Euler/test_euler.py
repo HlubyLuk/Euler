@@ -101,6 +101,21 @@ class Test(unittest.TestCase):
     def test_problem14(self):
         self.assertEqual(837799, problem14())
 
+    def test_problem15(self):
+        self.assertEqual(137846528820, problem15())
+
+    def test_binomial_coefficient(self):
+        self.assertEqual(6, binomial_coefficient(4, 2))
+
+    def test_factorial_3(self):
+        self.assertEqual(6, factorial(3))
+
+    def test_factorial_4(self):
+        self.assertEqual(24, factorial(4))
+
+    def test_factorial_5(self):
+        self.assertEqual(120, factorial(5))
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']

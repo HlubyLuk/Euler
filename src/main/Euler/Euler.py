@@ -702,6 +702,29 @@ def problem14():
     return max(len_chains, key=lambda x: x[1])[0]
 
 
+def problem15():
+    '''
+    Lattice paths
+
+    Problem 15
+    Starting in the top left corner of a 2×2 grid,
+    and only being able to move to the right and down,
+    there are exactly 6 routes to the bottom right corner.
+
+    How many such routes are there through a 20×20 grid?
+    '''
+    edge = 20
+    return binomial_coefficient(edge * 2, edge)
+
+
+def binomial_coefficient(n, k):
+    return factorial(n) / (factorial(k) * factorial(n - k))
+
+
+def factorial(n):
+    return reduce(mul, range(n, 1, -1))
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -717,4 +740,5 @@ if __name__ == '__main__':
     # print(problem12())
     # print(problem13())
     # print(problem14())
+    # print(problem15())
     pass

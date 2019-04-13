@@ -23,4 +23,7 @@ __all__ = [
     "factors_count",
     "problem13",
     "problem14",
+    "problem15",
+    "binomial_coefficient",
+    "factorial",
     ]
