@@ -986,6 +986,39 @@ def problem25():
     return c
 
 
+def problem26():
+    '''
+    @see: https://projecteuler.net/problem=26
+    '''
+
+    def recurring_cycle(a, b):
+        z = a
+        remaindes = []
+        while True:
+            while z < b:
+                z *= 10
+            rem = z % b
+            if rem == 0:
+                break
+            if rem in remaindes:
+                break
+            remaindes.append(rem)
+            z = 10 * rem
+        return remaindes, rem
+
+    def recurring_len(i):
+        if i[1] == 0: return 0
+        f = i[0]
+        s = i[1]
+        idx = list(f).index(s)
+        return len(f[idx::])
+
+    def recurring_len_tuples(r):
+        return [(x, recurring_len(recurring_cycle(1, x))) for x in r]
+
+    return max(recurring_len_tuples(range(1, 1000)), key=lambda x: x[1])[0]
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -1011,4 +1044,5 @@ if __name__ == '__main__':
     # print(problem23())
     # print(problem24())
     # print(problem25())
+    # print(problem26())
     pass
