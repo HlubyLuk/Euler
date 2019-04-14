@@ -33,4 +33,5 @@ __all__ = [
     "problem21",
     "amicable",
     "divisors",
+    "problem22",
     ]

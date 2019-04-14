@@ -140,6 +140,9 @@ class Test(unittest.TestCase):
     def test_divisors(self):
         self.assertListEqual([1, 2, 5], divisors(10))
 
+    def test_problem22(self):
+        self.assertEqual(871198282, problem22())
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']
