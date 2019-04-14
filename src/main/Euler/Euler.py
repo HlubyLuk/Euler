@@ -955,6 +955,19 @@ def problem23():
 def is_abundant(number): return sum(divisors(number)) > number
 
 
+def problem24():
+    '''
+    @see: https://projecteuler.net/problem=24
+    '''
+    from main.Permutation import Permutation
+    i, tmp = 1, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    perm = Permutation()
+    while i < 1000000:
+        perm.next_lexigonal_permutation(tmp)
+        i += 1
+    return reduce(lambda a, b: a * 10 + b, tmp)
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -978,4 +991,5 @@ if __name__ == '__main__':
     # print(problem21())
     # print(problem22())
     # print(problem23())
+    # print(problem24())
     pass

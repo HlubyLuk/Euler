@@ -35,4 +35,5 @@ __all__ = [
     "divisors",
     "problem22",
     "problem23",
+    "problem24",
     ]
