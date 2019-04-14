@@ -968,6 +968,24 @@ def problem24():
     return reduce(lambda a, b: a * 10 + b, tmp)
 
 
+def problem25():
+    '''
+    @see: https://projecteuler.net/problem=25
+    '''
+
+    def fib(a, b): return b, a + b
+
+    a = b = 1
+    c = 2
+    while True:
+        a, b = fib(a, b)
+        if len(str(a)) == 1000:
+            break
+        else:
+            c += 1
+    return c
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -992,4 +1010,5 @@ if __name__ == '__main__':
     # print(problem22())
     # print(problem23())
     # print(problem24())
+    # print(problem25())
     pass
