@@ -1019,6 +1019,27 @@ def problem26():
     return max(recurring_len_tuples(range(1, 1000)), key=lambda x: x[1])[0]
 
 
+def problem27():
+    '''
+    @see: https://projecteuler.net/problem=27
+    '''
+    limit = 1000
+    a = range(-limit, limit)
+    b = [k for k, v in enumerate(eratosthenes_sieve(limit)) if not v]
+    ret = (0, 0)
+    for x in a:
+        for y in b:
+            n = 0
+            while True:
+                tmp = n ** 2 + n * x + y
+                if not tmp in b:
+                    break
+                n += 1
+            if ret[0] < n:
+                ret = (n, x * y)
+    return ret[1]
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -1045,4 +1066,5 @@ if __name__ == '__main__':
     # print(problem24())
     # print(problem25())
     # print(problem26())
+    # print(problem27())
     pass
