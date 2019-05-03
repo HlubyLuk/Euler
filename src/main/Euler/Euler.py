@@ -1057,6 +1057,17 @@ def problem28():
     return tmp
 
 
+def problem29():
+    '''
+    @see: https://projecteuler.net/problem=29
+    '''
+    r, cache = range(2, 100 + 1), dict()
+    for a in r:
+        for b in r:
+            cache[a ** b] = True
+    return len(cache)
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -1085,4 +1096,5 @@ if __name__ == '__main__':
     # print(problem26())
     # print(problem27())
     # print(problem28())
+    # print(problem29())
     pass
