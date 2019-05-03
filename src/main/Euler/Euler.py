@@ -1040,6 +1040,23 @@ def problem27():
     return ret[1]
 
 
+def problem28():
+    '''
+    @see: https://projecteuler.net/problem=28
+    '''
+    edge = 1001
+    limit = edge * edge
+    tmp = last = 1
+    step = 2
+    while last < limit:
+        for _ in range(1, 5):
+            last += step
+            tmp += last
+        step += 2
+
+    return tmp
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -1067,4 +1084,5 @@ if __name__ == '__main__':
     # print(problem25())
     # print(problem26())
     # print(problem27())
+    # print(problem28())
     pass
