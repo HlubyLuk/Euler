@@ -1085,6 +1085,15 @@ def problem30():
     return sum([x for x in range(2, 10 ** 6) if x == powed(x)])
 
 
+def problem31():
+    '''
+    @see. https://projecteuler.net/problem=31
+    '''
+    from main.Solver import CoinSolver
+    cs = CoinSolver([1, 2, 5, 10, 20, 50, 100, 200], 200)
+    return cs.solve()
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -1115,4 +1124,5 @@ if __name__ == '__main__':
     # print(problem28())
     # print(problem29())
     # print(problem30())
+    # print(problem31())
     pass
