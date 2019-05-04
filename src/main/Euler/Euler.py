@@ -1068,6 +1068,23 @@ def problem29():
     return len(cache)
 
 
+def problem30():
+    '''
+    @see: https://projecteuler.net/problem=30
+    '''
+
+    def nums(i, cache):
+        if i > 0:
+            cache.insert(0, i % 10)
+            return nums(i / 10, cache)
+        else:
+            return cache
+
+    def powed(i): return sum([x ** 5 for x in nums(i, list())])
+
+    return sum([x for x in range(2, 10 ** 6) if x == powed(x)])
+
+
 if __name__ == '__main__':
     # print(problem1())
     # print(problem2())
@@ -1097,4 +1114,5 @@ if __name__ == '__main__':
     # print(problem27())
     # print(problem28())
     # print(problem29())
+    # print(problem30())
     pass
