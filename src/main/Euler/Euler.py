@@ -1094,35 +1094,23 @@ def problem31():
     return cs.solve()
 
 
+def problem32():
+    '''
+    @see: https://projecteuler.net/problem=32
+    '''
+    _digits = "123456789"
+    cache = set()
+
+    for a in range(1, 1000):
+        for b in range(1, 10000):
+            c = "{}{}{}".format(a, b, a * b)
+            if len(c) == 9 and "".join(sorted(c)) == _digits:
+                cache.add(a * b)
+            elif len(c) > 9:
+                break
+
+    return sum(cache)
+
+
 if __name__ == '__main__':
-    # print(problem1())
-    # print(problem2())
-    # print(problem3())
-    # print(problem4())
-    # print(problem5())
-    # print(problem6())
-    # print(problem7())
-    # print(problem8())
-    # print(problem9())
-    # print(problem10())
-    # print(problem11())
-    # print(problem12())
-    # print(problem13())
-    # print(problem14())
-    # print(problem15())
-    # print(problem16())
-    # print(problem18())
-    # print(problem19())
-    # print(problem20())
-    # print(problem21())
-    # print(problem22())
-    # print(problem23())
-    # print(problem24())
-    # print(problem25())
-    # print(problem26())
-    # print(problem27())
-    # print(problem28())
-    # print(problem29())
-    # print(problem30())
-    # print(problem31())
     pass
