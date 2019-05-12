@@ -1112,5 +1112,32 @@ def problem32():
     return sum(cache)
 
 
+def problem33():
+    '''
+    @see: https://projecteuler.net/problem=33
+    '''
+    # TODO implement.
+    return 0
+
+
+def problem34():
+    '''
+    @see: https://projecteuler.net/problem=34
+    '''
+
+    def factorial(num):
+        return reduce(mul, range(1, num + 1)) if num > 1 else 1
+
+    def numbers(num):
+        while num:
+            yield num % 10
+            num /= 10
+
+    def curious(num):
+        return num == sum(factorial(digit) for digit in numbers(num))
+
+    return sum([num for num in range(3, factorial(9) + 1) if curious(num)])
+
+
 if __name__ == '__main__':
     pass
