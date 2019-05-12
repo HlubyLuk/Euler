@@ -1139,5 +1139,39 @@ def problem34():
     return sum([num for num in range(3, factorial(9) + 1) if curious(num)])
 
 
+def problem35():
+    '''
+    @see: https://projecteuler.net/problem=35
+    '''
+    from collections import deque
+
+    def to_digits(numb):
+        cache = []
+
+        while numb:
+            numb, digit = divmod(numb, 10)
+            cache.append(digit)
+
+        return cache
+
+    def to_int(digits):
+        return reduce(lambda x, y: x * 10 + y, digits)
+
+    def analyze(digits):
+        dq = deque(digits)
+
+        for _ in range(len(dq)):
+            if sieve[to_int(dq)]:
+                return False
+            dq.rotate()
+
+        return True
+
+    limit = 1000000
+    sieve = eratosthenes_sieve(limit)
+
+    return len([numb for numb in range(1, limit) if analyze(to_digits(numb))])
+
+
 if __name__ == '__main__':
     pass
