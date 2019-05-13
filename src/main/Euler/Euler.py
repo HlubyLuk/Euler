@@ -66,12 +66,12 @@ def is_palindrome(items):
 def problem4():
     '''
     Largest palindrome product
-    
+
     Problem 4
     A palindromic number reads the same both ways.
     The largest palindrome made from the product of two 2-digit numbers
     is 9009 = 91 × 99.
-    
+
     Find the largest palindrome made from the product of two 3-digit numbers.
     '''
     return sorted([a * b for a in range(100, 1001) for b in range(100, 1001)
@@ -286,7 +286,7 @@ def eratosthenes_sieve(limit):
     while idx * idx < limit:
         for i in range(idx * 2, limit + 1, idx):
             sieve[i] = True
-        
+
         while True:
             idx += 1
 
@@ -1173,5 +1173,24 @@ def problem35():
     return len([numb for numb in range(1, limit) if analyze(to_digits(numb))])
 
 
+def problem36():
+    '''
+    @see: https://projecteuler.net/problem=36
+    '''
+
+    def int_to_bin(a):
+        return "{0:b}".format(a)
+
+    def is_palindrome(a):
+        tmp = str(a)
+        return tmp == tmp[::-1]
+
+    c = [(a, int_to_bin(a)) for a in range(1, 1000000)]
+    f = filter(lambda x: is_palindrome(x[0]) and is_palindrome(x[1]), c)
+    return sum([a[0] for a in f])
+
+
 if __name__ == '__main__':
+    from timeit import timeit
+    print(timeit(stmt=lambda: problem36(), number=5))
     pass

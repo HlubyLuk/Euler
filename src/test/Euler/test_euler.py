@@ -183,6 +183,9 @@ class Test(unittest.TestCase):
     def test_problem35(self):
         self.assertEqual(55, problem35())
 
+    def test_problem36(self):
+        self.assertEqual(872187, problem36())
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.test_problem1']
