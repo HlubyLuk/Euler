@@ -1190,7 +1190,37 @@ def problem36():
     return sum([a[0] for a in f])
 
 
+def problem37():
+    '''
+    @see: https://projecteuler.net/problem=37
+    '''
+    limit = 1000000
+
+    def truncatable_left(item, sieve):
+        tmp = str(item)
+
+        for i in range(len(tmp)):
+            if sieve[int(tmp[i::])]:
+                return False
+
+        return True
+
+    def truncatable_right(item, sieve):
+        tmp = str(item)
+        lenght = len(tmp)
+
+        for i in range(lenght):
+            if sieve[int(tmp[:lenght - i])]:
+                return False
+
+        return True
+
+    def truncatable(sieve):
+        return [i for i in range(10, len(sieve))
+                if truncatable_left(i, sieve) and truncatable_right(i, sieve)]
+
+    return sum(truncatable(eratosthenes_sieve(limit)))
+
+
 if __name__ == '__main__':
-    from timeit import timeit
-    print(timeit(stmt=lambda: problem36(), number=5))
     pass
