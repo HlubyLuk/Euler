@@ -1116,8 +1116,19 @@ def problem33():
     '''
     @see: https://projecteuler.net/problem=33
     '''
-    # TODO implement.
-    return 0
+    from fractions import gcd
+
+    num = den = 1
+    for d in range(10, 100):
+        for n in range(10, d):
+            d0, d1 = divmod(d, 10)
+            n0, n1 = divmod(n, 10)
+            if (d0 == n1 and d1 * n == n0 * d) or \
+            (d1 == n0 and d0 * n == n1 * d):
+                num *= n
+                den *= d
+
+    return den // gcd(den, num)
 
 
 def problem34():

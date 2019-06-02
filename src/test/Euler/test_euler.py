@@ -174,8 +174,7 @@ class Test(unittest.TestCase):
         self.assertEqual(45228, problem32())
 
     def test_problem33(self):
-        self.assertEqual(0, problem33())
-        print("TODO implement problem33!!!")
+        self.assertEqual(100, problem33())
 
     def test_problem34(self):
         self.assertEqual(40730, problem34())
