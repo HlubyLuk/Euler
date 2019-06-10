@@ -1233,5 +1233,32 @@ def problem37():
     return sum(truncatable(eratosthenes_sieve(limit)))
 
 
+def problem38():
+    '''
+    @see: https://projecteuler.net/problem=38
+    '''
+    all_digit = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+    def is_pandigita(number):
+        return all_digit == sorted(str(number))
+
+    def try_check(number):
+        return len(str(number)) == 9
+
+    def not_posible_pandigital(number):
+        return len(str(number)) > 9
+
+    results = dict()
+    for base in xrange(1, 10 ** 5):
+        tmp = base
+        for idx in range(2, 10):
+            tmp = int("{}{}".format(tmp, base * idx))
+            if not_posible_pandigital(tmp):
+                break
+            if try_check(tmp) and is_pandigita(tmp):
+                results[base] = tmp
+    return sorted(results.items(), key=lambda x: x[1])[-1][1]
+
+
 if __name__ == '__main__':
     pass
