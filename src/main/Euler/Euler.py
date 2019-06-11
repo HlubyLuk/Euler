@@ -1260,5 +1260,35 @@ def problem38():
     return sorted(results.items(), key=lambda x: x[1])[-1][1]
 
 
+def problem39():
+    '''
+    @see: https://projecteuler.net/problem=39
+    '''
+
+    def pythagoras(a, b, c):
+        return c * c == a * a + b * b
+
+    result = (0, 0)
+    for perimeter in xrange(1, 1001):
+        count = 0
+
+        for a in xrange(1, perimeter // 3):
+            for b in xrange(a + 1, perimeter // 2):
+                c = perimeter - a - b
+
+                if pythagoras(a, b, c):
+                    count += 1
+
+                if c <= 0:
+                    break
+
+        if result[1] < count:
+            result = (perimeter, count)
+
+    return result[0]
+
+
 if __name__ == '__main__':
+    from timeit import timeit
+    print(timeit(stmt=lambda: problem39(), number=10))
     pass

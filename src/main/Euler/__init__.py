@@ -50,4 +50,5 @@ __all__ = [
     "problem36",
     "problem37",
     "problem38",
+    "problem39",
     ]
