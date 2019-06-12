@@ -1288,7 +1288,17 @@ def problem39():
     return result[0]
 
 
+def problem40():
+    '''
+    @see: https://projecteuler.net/problem=40
+    '''
+    cache = "".join([str(x) for x in xrange(1, 10 ** 6 + 1)])
+
+    result = 1
+    for idx in xrange(7):
+        result *= int(cache[10 ** idx - 1])
+    return result
+
+
 if __name__ == '__main__':
-    from timeit import timeit
-    print(timeit(stmt=lambda: problem39(), number=10))
     pass
