@@ -1300,5 +1300,25 @@ def problem40():
     return result
 
 
+def problem41():
+    from collections import deque
+    from main.Permutation import Permutation
+
+    result = 0
+    perm = Permutation()
+
+    def collection_to_int(col):
+        return reduce(lambda x, y: x * 10 + y, col)
+
+    for c in range(2, 10):
+        d = deque(range(1, c + 1))
+        while perm.next_lexigonal_permutation(d):
+            value = collection_to_int(d)
+            if is_prime(value):
+                result = value
+
+    return result
+
+
 if __name__ == '__main__':
     pass
