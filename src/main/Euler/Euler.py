@@ -1301,6 +1301,9 @@ def problem40():
 
 
 def problem41():
+    '''
+    @see: https://projecteuler.net/problem=41
+    '''
     from collections import deque
     from main.Permutation import Permutation
 
@@ -1318,6 +1321,31 @@ def problem41():
                 result = value
 
     return result
+
+
+def problem42():
+    '''
+    @see: https://projecteuler.net/problem=42
+    '''
+    from os import path
+    from math import sqrt
+
+    def is_triangle(n):
+        x = (sqrt(8 * n + 1) - 1) / 2
+        return x - int(x) == 0
+
+    def char_to_int(c):
+        return ord(c) - a_ord + 1
+
+    a_ord = ord("A")
+    f = path.join(path.dirname(path.abspath(__file__)), "p42.txt")
+
+    counter = 0
+    for item in open(f).read().replace('"', "").split(","):
+        if is_triangle(sum([char_to_int(c) for c in item])):
+            counter += 1
+
+    return counter
 
 
 if __name__ == '__main__':
