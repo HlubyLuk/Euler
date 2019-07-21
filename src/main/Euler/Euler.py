@@ -1348,5 +1348,45 @@ def problem42():
     return counter
 
 
+def problem43():
+    '''
+    @see: https://projecteuler.net/problem=43
+    '''
+    from main.Permutation import Permutation
+
+    def arr_to_num(a, b, c, arr):
+        return arr[a] * 100 + arr[b] * 10 + arr[c]
+
+    def check(arr):
+        if arr_to_num(1, 2, 3, arr) % 2 != 0:
+            return False
+        if arr_to_num(2, 3, 4, arr) % 3 != 0:
+            return False
+        if arr_to_num(3, 4, 5, arr) % 5 != 0:
+            return False
+        if arr_to_num(4, 5, 6, arr) % 7 != 0:
+            return False
+        if arr_to_num(5, 6, 7, arr) % 11 != 0:
+            return False
+        if arr_to_num(6, 7, 8, arr) % 13 != 0:
+            return False
+        if arr_to_num(7, 8, 9, arr) % 17 != 0:
+            return False
+        return True
+
+    perm = Permutation()
+    pandigital = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    result = 0
+
+    while True:
+        if check(pandigital):
+            result += reduce(lambda a, b: a * 10 + b, pandigital)
+
+        if not perm.next_lexigonal_permutation(pandigital):
+            break
+
+    return result
+
+
 if __name__ == '__main__':
     pass
