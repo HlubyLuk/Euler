@@ -1421,5 +1421,41 @@ def problem44():
     return solve()
 
 
+def problem45():
+    '''
+    @see: https://projecteuler.net/problem=45
+    '''
+    from math import sqrt
+
+    def triangle(n):
+        return n * (n + 1) / 2
+
+    def is_triangle(x):
+        n = (sqrt(8 * x + 1) - 1) / 2
+        return n - int(n) == 0
+
+    def is_pentagonal(x):
+        n = (sqrt(24 * x + 1) + 1) / 6
+        return n - int(n) == 0
+
+    def is_hexagonal(x):
+        n = (sqrt(8 * x + 1) + 1) / 4
+        return n - int(n) == 0
+
+    def solve():
+        y = 286
+
+        while True:
+            x = triangle(y)
+            if is_triangle(x) and is_pentagonal(x) and is_hexagonal(x):
+                break
+            y += 1
+
+        return x
+
+    return solve()
+
+
 if __name__ == '__main__':
+    print(problem45())
     pass
