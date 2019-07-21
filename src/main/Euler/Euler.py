@@ -1388,5 +1388,38 @@ def problem43():
     return result
 
 
+def problem44():
+    '''
+    @see: https://projecteuler.net/problem=44
+    '''
+    from math import sqrt
+    from collections import deque
+
+    def is_pentagonal(n):
+        x = (1 + sqrt(24 * n + 1)) / 6
+        return x - int(x) == 0
+
+    def pentagonal(n):
+        return n * (3 * n - 1) / 2
+
+    def solve():
+        pentagonals, x = deque(), 1
+
+        while True:
+            p_j = pentagonal(x)
+
+            for p_k in pentagonals:
+                tmp = abs(p_j - p_k)
+                if is_pentagonal(p_j + p_k) and is_pentagonal(tmp):
+                    return tmp
+
+            pentagonals.append(p_j)
+            x += 1
+
+        return -1
+
+    return solve()
+
+
 if __name__ == '__main__':
     pass
