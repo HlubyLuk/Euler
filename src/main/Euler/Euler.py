@@ -1456,6 +1456,20 @@ def problem45():
     return solve()
 
 
+def problem46():
+    from itertools import count
+    result = 9
+    while True:
+        if not is_prime(result):
+            for i in count(1):
+                k = result - 2 * i * i
+                if k < 0:
+                    return result
+                elif is_prime(k):
+                    break
+        result += 2
+    pass
+
+
 if __name__ == '__main__':
-    print(problem45())
     pass
